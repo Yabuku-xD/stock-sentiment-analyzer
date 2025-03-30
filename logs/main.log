@@ -1311,3 +1311,783 @@ LINE 2:         INSERT INTO news_articles
 2025-03-30 12:23:58,028 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
 2025-03-30 12:23:58,028 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
 2025-03-30 12:23:58,308 - __main__ - INFO - Pipeline completed
+2025-03-30 12:34:31,027 - data_processing.text_preprocessor - INFO - NLTK resources successfully verified/downloaded
+2025-03-30 12:34:32,269 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:32,272 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:32,297 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:32,300 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:32,328 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:32,331 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:32,358 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:32,361 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:32,365 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:34:32,967 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:34:32,995 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:32,998 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:33,219 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 12:34:33,361 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:33,364 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:33,392 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:33,394 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:33,422 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:33,425 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:33,454 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:33,457 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:33,594 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:33,597 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:33,626 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:33,630 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:33,657 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:33,660 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:33,662 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:34:34,036 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:34:34,064 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:34,067 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:34,094 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:34:34,096 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:34,111 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 12:34:34,111 - __main__ - INFO - Starting continuous data collection
+2025-03-30 12:34:34,111 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 12:34:34,112 - __main__ - INFO - Starting news collection thread
+2025-03-30 12:34:34,112 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 12:34:34,112 - __main__ - INFO - Processing news articles
+2025-03-30 12:34:34,348 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:34:34,773 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:35,001 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:35,007 - __main__ - INFO - Analyzing data from the last 7 days
+2025-03-30 12:34:35,007 - __main__ - INFO - Analyzing correlations
+2025-03-30 12:34:35,007 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 30min windows
+2025-03-30 12:34:35,016 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:34:35,016 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 60min windows
+2025-03-30 12:34:35,021 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:34:35,021 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 240min windows
+2025-03-30 12:34:35,027 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:34:35,027 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 30min windows
+2025-03-30 12:34:35,032 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:34:35,032 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 60min windows
+2025-03-30 12:34:35,036 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:34:35,036 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 240min windows
+2025-03-30 12:34:35,041 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:34:35,041 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 30min windows
+2025-03-30 12:34:35,047 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:34:35,047 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 60min windows
+2025-03-30 12:34:35,052 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:34:35,052 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 240min windows
+2025-03-30 12:34:35,057 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:34:35,057 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 30min windows
+2025-03-30 12:34:35,062 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:34:35,062 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 60min windows
+2025-03-30 12:34:35,066 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:34:35,067 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 240min windows
+2025-03-30 12:34:35,072 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:34:35,072 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 30min windows
+2025-03-30 12:34:35,076 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:34:35,077 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 60min windows
+2025-03-30 12:34:35,081 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:34:35,081 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 240min windows
+2025-03-30 12:34:35,087 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:34:35,087 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 30min windows
+2025-03-30 12:34:35,088 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:34:35,088 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:34:35,088 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 60min windows
+2025-03-30 12:34:35,089 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:34:35,089 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:34:35,089 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 240min windows
+2025-03-30 12:34:35,090 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:34:35,090 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:34:35,090 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 30min windows
+2025-03-30 12:34:35,094 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:34:35,094 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 60min windows
+2025-03-30 12:34:35,099 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:34:35,099 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 240min windows
+2025-03-30 12:34:35,104 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:34:35,105 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 30min windows
+2025-03-30 12:34:35,106 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:34:35,106 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:34:35,106 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 60min windows
+2025-03-30 12:34:35,107 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:34:35,107 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:34:35,107 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 240min windows
+2025-03-30 12:34:35,108 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:34:35,108 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:34:35,108 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 30min windows
+2025-03-30 12:34:35,112 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:34:35,112 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 60min windows
+2025-03-30 12:34:35,117 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:34:35,117 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 240min windows
+2025-03-30 12:34:35,122 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:34:35,122 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 30min windows
+2025-03-30 12:34:35,127 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:34:35,127 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 60min windows
+2025-03-30 12:34:35,132 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:34:35,132 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 240min windows
+2025-03-30 12:34:35,136 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:34:35,136 - __main__ - INFO - Analyzing time lags
+2025-03-30 12:34:35,136 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AAPL
+2025-03-30 12:34:35,145 - __main__ - INFO - Stopping data collection
+2025-03-30 12:34:35,145 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 12:34:35,552 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:34:36,801 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:34:37,943 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:34:39,069 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:34:40,150 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 12:34:40,234 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:34:41,501 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:34:42,635 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:34:43,759 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:34:44,843 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:34:44,846 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:34:44,848 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:34:44,900 - data_collection.financial_news_collector - INFO - Retrieved 69 news items from Finnhub for WMT
+2025-03-30 12:34:45,161 - __main__ - INFO - Pipeline completed
+2025-03-30 12:36:28,703 - data_processing.text_preprocessor - INFO - NLTK resources successfully verified/downloaded
+2025-03-30 12:36:29,909 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:29,912 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:29,938 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:29,940 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:29,967 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:29,970 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:29,997 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:30,000 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:30,004 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:36:40,470 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:36:40,499 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:40,502 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:40,709 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 12:36:40,848 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:40,851 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:40,876 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:40,880 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:40,910 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:40,913 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:40,941 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:40,944 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:40,972 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:40,974 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:41,003 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:41,006 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:41,033 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:41,037 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:41,039 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:36:41,497 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:36:41,524 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:41,528 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:41,554 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:36:41,557 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:41,570 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 12:36:41,570 - __main__ - INFO - Starting continuous data collection
+2025-03-30 12:36:41,571 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 12:36:41,571 - __main__ - INFO - Starting news collection thread
+2025-03-30 12:36:41,572 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 12:36:41,572 - __main__ - INFO - Processing news articles
+2025-03-30 12:36:41,748 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:36:42,209 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:42,428 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:42,433 - __main__ - INFO - Analyzing data from the last 7 days
+2025-03-30 12:36:42,433 - __main__ - INFO - Analyzing correlations
+2025-03-30 12:36:42,433 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 30min windows
+2025-03-30 12:36:42,441 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:36:42,441 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 60min windows
+2025-03-30 12:36:42,447 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:36:42,447 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 240min windows
+2025-03-30 12:36:42,452 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:36:42,452 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 30min windows
+2025-03-30 12:36:42,456 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:36:42,457 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 60min windows
+2025-03-30 12:36:42,461 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:36:42,461 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 240min windows
+2025-03-30 12:36:42,466 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:36:42,467 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 30min windows
+2025-03-30 12:36:42,472 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:36:42,472 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 60min windows
+2025-03-30 12:36:42,476 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:36:42,476 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 240min windows
+2025-03-30 12:36:42,481 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:36:42,482 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 30min windows
+2025-03-30 12:36:42,486 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:36:42,487 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 60min windows
+2025-03-30 12:36:42,491 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:36:42,491 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 240min windows
+2025-03-30 12:36:42,495 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:36:42,495 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 30min windows
+2025-03-30 12:36:42,501 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:36:42,501 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 60min windows
+2025-03-30 12:36:42,506 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:36:42,506 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 240min windows
+2025-03-30 12:36:42,511 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:36:42,511 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 30min windows
+2025-03-30 12:36:42,512 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:36:42,512 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:36:42,512 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 60min windows
+2025-03-30 12:36:42,513 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:36:42,513 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:36:42,513 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 240min windows
+2025-03-30 12:36:42,514 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:36:42,514 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:36:42,514 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 30min windows
+2025-03-30 12:36:42,518 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:36:42,519 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 60min windows
+2025-03-30 12:36:42,524 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:36:42,524 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 240min windows
+2025-03-30 12:36:42,529 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:36:42,529 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 30min windows
+2025-03-30 12:36:42,530 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:36:42,530 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:36:42,530 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 60min windows
+2025-03-30 12:36:42,531 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:36:42,531 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:36:42,531 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 240min windows
+2025-03-30 12:36:42,532 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:36:42,532 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:36:42,532 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 30min windows
+2025-03-30 12:36:42,537 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:36:42,537 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 60min windows
+2025-03-30 12:36:42,542 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:36:42,542 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 240min windows
+2025-03-30 12:36:42,546 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:36:42,547 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 30min windows
+2025-03-30 12:36:42,551 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:36:42,552 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 60min windows
+2025-03-30 12:36:42,556 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:36:42,556 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 240min windows
+2025-03-30 12:36:42,561 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:36:42,561 - __main__ - INFO - Analyzing time lags
+2025-03-30 12:36:42,561 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AAPL
+2025-03-30 12:36:42,570 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,570 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,570 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,570 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,570 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,570 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,570 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,570 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,570 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,571 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,572 - analysis.time_lag_analyzer - INFO - Analyzing time lag for MSFT
+2025-03-30 12:36:42,576 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,576 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,576 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,577 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,577 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,577 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,577 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,577 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,577 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,578 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,578 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,578 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,578 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,578 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,578 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,578 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,579 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,579 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,579 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,579 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,579 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,579 - analysis.time_lag_analyzer - INFO - Analyzing time lag for GOOGL
+2025-03-30 12:36:42,584 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,585 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,585 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,585 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,585 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,585 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,585 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,585 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,585 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,586 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,586 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,586 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,586 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,586 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,586 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,586 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,586 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,586 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,587 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,587 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,587 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,587 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AMZN
+2025-03-30 12:36:42,592 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,592 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,592 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,593 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,594 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,594 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,594 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,594 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,594 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,594 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,594 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,594 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,594 - analysis.time_lag_analyzer - INFO - Analyzing time lag for TSLA
+2025-03-30 12:36:42,600 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,600 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,600 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,601 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,601 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,601 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,601 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,601 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,601 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,601 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,602 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,602 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,602 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,602 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,602 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,602 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,603 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,603 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,603 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,603 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,603 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,603 - analysis.time_lag_analyzer - INFO - Analyzing time lag for META
+2025-03-30 12:36:42,604 - analysis.time_lag_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:36:42,604 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for META
+2025-03-30 12:36:42,604 - analysis.time_lag_analyzer - INFO - Analyzing time lag for NVDA
+2025-03-30 12:36:42,610 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,610 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,610 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,610 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,611 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,611 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,611 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,611 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,611 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,612 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,612 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,612 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,612 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,612 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,612 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,612 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,612 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,612 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,613 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,613 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,613 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,613 - analysis.time_lag_analyzer - INFO - Analyzing time lag for JPM
+2025-03-30 12:36:42,614 - analysis.time_lag_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:36:42,614 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for JPM
+2025-03-30 12:36:42,614 - analysis.time_lag_analyzer - INFO - Analyzing time lag for V
+2025-03-30 12:36:42,619 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,619 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,619 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,619 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,619 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,619 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,620 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,621 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,621 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,621 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,621 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,621 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,621 - analysis.time_lag_analyzer - INFO - Analyzing time lag for WMT
+2025-03-30 12:36:42,626 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,626 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,626 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,626 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,626 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,626 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,626 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,626 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,627 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,627 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,627 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,627 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,627 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,627 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,628 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,628 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,628 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,628 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,628 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,628 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,628 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,641 - __main__ - INFO - Building random_forest models using 30 days of data
+2025-03-30 12:36:42,641 - analysis.predictive_model - INFO - Building model for AAPL
+2025-03-30 12:36:42,659 - analysis.predictive_model - WARNING - Insufficient data for AAPL to build a model
+2025-03-30 12:36:42,659 - analysis.predictive_model - INFO - Building model for MSFT
+2025-03-30 12:36:42,670 - analysis.predictive_model - WARNING - Insufficient data for MSFT to build a model
+2025-03-30 12:36:42,670 - analysis.predictive_model - INFO - Building model for GOOGL
+2025-03-30 12:36:42,682 - analysis.predictive_model - WARNING - Insufficient data for GOOGL to build a model
+2025-03-30 12:36:42,682 - analysis.predictive_model - INFO - Building model for AMZN
+2025-03-30 12:36:42,692 - analysis.predictive_model - WARNING - Insufficient data for AMZN to build a model
+2025-03-30 12:36:42,692 - analysis.predictive_model - INFO - Building model for TSLA
+2025-03-30 12:36:42,703 - analysis.predictive_model - WARNING - Insufficient data for TSLA to build a model
+2025-03-30 12:36:42,703 - analysis.predictive_model - INFO - Building model for META
+2025-03-30 12:36:42,705 - analysis.predictive_model - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:36:42,705 - analysis.predictive_model - WARNING - Insufficient data for META to build a model
+2025-03-30 12:36:42,705 - analysis.predictive_model - INFO - Building model for NVDA
+2025-03-30 12:36:42,715 - analysis.predictive_model - WARNING - Insufficient data for NVDA to build a model
+2025-03-30 12:36:42,715 - analysis.predictive_model - INFO - Building model for JPM
+2025-03-30 12:36:42,718 - analysis.predictive_model - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:36:42,718 - analysis.predictive_model - WARNING - Insufficient data for JPM to build a model
+2025-03-30 12:36:42,718 - analysis.predictive_model - INFO - Building model for V
+2025-03-30 12:36:42,729 - analysis.predictive_model - WARNING - Insufficient data for V to build a model
+2025-03-30 12:36:42,729 - analysis.predictive_model - INFO - Building model for WMT
+2025-03-30 12:36:42,739 - analysis.predictive_model - WARNING - Insufficient data for WMT to build a model
+2025-03-30 12:36:42,740 - __main__ - INFO - Generating reports for the last 7 days
+2025-03-30 12:36:42,745 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:36:42,750 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:36:42,756 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:36:42,760 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:36:42,765 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:36:42,765 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:36:42,767 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:36:42,772 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:36:42,772 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:36:42,773 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:36:42,777 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:36:42,781 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:36:42,782 - __main__ - INFO - Saved correlation report to reports\analysis\correlation_report_20250330.md
+2025-03-30 12:36:42,782 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AAPL
+2025-03-30 12:36:42,787 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,787 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,787 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,787 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,787 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,788 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,788 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,788 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,788 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,788 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,788 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,788 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,789 - analysis.time_lag_analyzer - INFO - Analyzing time lag for MSFT
+2025-03-30 12:36:42,794 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,794 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,795 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,795 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,795 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,795 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,795 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,795 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,795 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,796 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,798 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,798 - analysis.time_lag_analyzer - INFO - Analyzing time lag for GOOGL
+2025-03-30 12:36:42,803 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,803 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,803 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,803 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,803 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,804 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,804 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,804 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,804 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,804 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,804 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,804 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,804 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,805 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,805 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,805 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,805 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,805 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,805 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,805 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,805 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,805 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AMZN
+2025-03-30 12:36:42,810 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,810 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,810 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,810 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,810 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,810 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,810 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,811 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,812 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,812 - analysis.time_lag_analyzer - INFO - Analyzing time lag for TSLA
+2025-03-30 12:36:42,816 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,816 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,817 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,817 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,817 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,817 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,817 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,817 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,817 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,817 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,818 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,819 - analysis.time_lag_analyzer - INFO - Analyzing time lag for META
+2025-03-30 12:36:42,819 - analysis.time_lag_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:36:42,819 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for META
+2025-03-30 12:36:42,819 - analysis.time_lag_analyzer - INFO - Analyzing time lag for NVDA
+2025-03-30 12:36:42,825 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,825 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,825 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,825 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,825 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,825 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,825 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,826 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,827 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,827 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,827 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,827 - analysis.time_lag_analyzer - INFO - Analyzing time lag for JPM
+2025-03-30 12:36:42,828 - analysis.time_lag_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:36:42,828 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for JPM
+2025-03-30 12:36:42,828 - analysis.time_lag_analyzer - INFO - Analyzing time lag for V
+2025-03-30 12:36:42,833 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,833 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,833 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,833 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,834 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,834 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,834 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,834 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,834 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,834 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,834 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,835 - analysis.time_lag_analyzer - INFO - Analyzing time lag for WMT
+2025-03-30 12:36:42,841 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,841 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,841 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,841 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,841 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,842 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,842 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,842 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,842 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,842 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,842 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,842 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,843 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,843 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,843 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,843 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,843 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,843 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,843 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,843 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,844 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,844 - __main__ - INFO - Saved time lag report to reports\analysis\time_lag_report_20250330.md
+2025-03-30 12:36:42,848 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:36:42,848 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting AAPL
+2025-03-30 12:36:42,854 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,854 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,854 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,854 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,854 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,854 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,854 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,854 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,855 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,857 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,857 - analysis.time_lag_analyzer - WARNING - No lag correlations available for AAPL
+2025-03-30 12:36:42,861 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:36:42,861 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting MSFT
+2025-03-30 12:36:42,867 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,867 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,868 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,868 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,868 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,868 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,868 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,868 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,868 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,868 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,869 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,869 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,869 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,869 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,869 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,869 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,869 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,870 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,870 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,870 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,870 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,870 - analysis.time_lag_analyzer - WARNING - No lag correlations available for MSFT
+2025-03-30 12:36:42,876 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:36:42,876 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting GOOGL
+2025-03-30 12:36:42,880 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,881 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,881 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,881 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,881 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,881 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,881 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,882 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,882 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,882 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,882 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,882 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,882 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,882 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,882 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,883 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,883 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,883 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,883 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,883 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,883 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,883 - analysis.time_lag_analyzer - WARNING - No lag correlations available for GOOGL
+2025-03-30 12:36:42,888 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:36:42,888 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting AMZN
+2025-03-30 12:36:42,893 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,893 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,893 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,893 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,893 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,894 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,894 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,894 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,894 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,894 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,894 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,894 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,895 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,895 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,895 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,895 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,895 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,895 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,896 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,896 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,896 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,896 - analysis.time_lag_analyzer - WARNING - No lag correlations available for AMZN
+2025-03-30 12:36:42,901 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:36:42,901 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting TSLA
+2025-03-30 12:36:42,906 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,906 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,906 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,907 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,907 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,907 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,907 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,907 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,907 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,907 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag -1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,907 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 0: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,907 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 1: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 2: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 3: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 4: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 5: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 6: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 7: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 8: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 9: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - ERROR - Error calculating correlation for lag 10: data type <class 'numpy.object_'> not inexact
+2025-03-30 12:36:42,908 - analysis.time_lag_analyzer - WARNING - No lag correlations available for TSLA
+2025-03-30 12:36:42,909 - __main__ - INFO - Starting dashboard on port 8050
+2025-03-30 12:36:42,909 - __main__ - INFO - Stopping data collection
+2025-03-30 12:36:42,909 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 12:36:42,971 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:36:44,103 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:36:45,262 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:36:46,477 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:36:47,677 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:36:47,911 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 12:36:48,835 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:36:49,971 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:36:51,082 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:36:52,211 - data_collection.financial_news_collector - INFO - Retrieved 69 news items from Finnhub for WMT
+2025-03-30 12:36:52,353 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:36:52,355 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:36:52,357 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:36:52,918 - __main__ - INFO - Pipeline completed

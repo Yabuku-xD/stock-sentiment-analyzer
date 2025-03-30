@@ -243,9 +243,9 @@ class SentimentDashboard:
             )
             
             # Convert to DataFrames and then to JSON for storage
-            price_df = pd.DataFrame(price_data)
-            sentiment_df = pd.DataFrame(sentiment_data)
-            news_df = pd.DataFrame(news_data)
+            price_df = pd.DataFrame(price_data) if price_data else pd.DataFrame()
+            sentiment_df = pd.DataFrame(sentiment_data) if sentiment_data else pd.DataFrame()
+            news_df = pd.DataFrame(news_data) if news_data else pd.DataFrame()
             
             update_time = f"Last updated: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
             
@@ -358,8 +358,8 @@ class SentimentDashboard:
                 price_df['price_change'] = price_df['close'].pct_change() * 100
                 
                 # Create a common time resolution (hourly)
-                price_df['hour'] = price_df['timestamp'].dt.floor('H')
-                sentiment_df['hour'] = sentiment_df['timestamp'].dt.floor('H')
+                price_df['hour'] = pd.to_datetime(price_df['timestamp']).dt.floor('H')
+                sentiment_df['hour'] = pd.to_datetime(sentiment_df['timestamp']).dt.floor('H')
                 
                 # Aggregate by hour
                 price_hourly = price_df.groupby('hour')['price_change'].mean().reset_index()
@@ -800,7 +800,8 @@ class SentimentDashboard:
     
     def run_server(self, debug=True, port=8050):
         """Run the dashboard server."""
-        self.app.run_server(debug=debug, port=port)
+        # Use app.run() instead of app.run_server() for newer versions of Dash
+        self.app.run(debug=debug, port=port)
 
 if __name__ == "__main__":
     dashboard = SentimentDashboard()

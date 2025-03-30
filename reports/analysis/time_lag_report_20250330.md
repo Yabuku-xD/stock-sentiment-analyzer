@@ -2,7 +2,7 @@
 **Date Range:** 2025-03-23 to 2025-03-30
 **Window Size:** 60 minutes
 **Maximum Lag:** 10 windows (600 minutes)
-**Generated:** 2025-03-30 11:54:05
+**Generated:** 2025-03-30 12:36:42
 
 ## Summary of Findings
 The following table shows the best time lag between sentiment and price changes:

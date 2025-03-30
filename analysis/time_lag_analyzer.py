@@ -70,8 +70,8 @@ class TimeLagAnalyzer:
         sentiment_df = pd.DataFrame(sentiment_data)
         
         # Create time window buckets
-        prices_df['window'] = prices_df['timestamp'].dt.floor(f'{window_size}min')
-        sentiment_df['window'] = sentiment_df['timestamp'].dt.floor(f'{window_size}min')
+        prices_df['window'] = pd.to_datetime(prices_df['timestamp']).dt.floor(f'{window_size}min')
+        sentiment_df['window'] = pd.to_datetime(sentiment_df['timestamp']).dt.floor(f'{window_size}min')
         
         # Aggregate data by time windows
         price_windows = prices_df.groupby('window').agg({
@@ -158,28 +158,80 @@ class TimeLagAnalyzer:
         # Alternatively, calculate correlations with shifted series
         lagged_correlations = []
         for lag in range(-max_lag, max_lag + 1):
-            if lag < 0:
-                # Sentiment leads price (shift price forward)
-                shifted_price = np.roll(price_series, -lag)
-                shifted_price[:max_lag] = np.nan  # Invalidate wrapped values
-                corr, p_value = pearsonr(sentiment_series[:-lag], shifted_price[-lag:])
-            elif lag > 0:
-                # Price leads sentiment (shift sentiment forward)
-                shifted_sentiment = np.roll(sentiment_series, lag)
-                shifted_sentiment[-max_lag:] = np.nan  # Invalidate wrapped values
-                corr, p_value = pearsonr(shifted_sentiment[lag:], price_series[:-lag])
-            else:
-                # No lag
-                corr, p_value = pearsonr(sentiment_series, price_series)
-            
-            lagged_correlations.append({
-                'lag': lag,
-                'lag_minutes': lag * window_size,
-                'correlation': corr,
-                'p_value': p_value
-            })
+            try:
+                if lag < 0:
+                    # Sentiment leads price (shift price forward)
+                    if abs(lag) >= len(price_series):
+                        # Skip if lag is larger than series length
+                        continue
+                        
+                    # Calculate correlation on truncated series of equal length
+                    segment_length = min(len(sentiment_series) - abs(lag), len(price_series) - abs(lag))
+                    if segment_length < 3:  # Need at least 3 points for correlation
+                        continue
+                        
+                    s_segment = sentiment_series[:segment_length]
+                    p_segment = price_series[abs(lag):abs(lag)+segment_length]
+                    
+                    if len(s_segment) != len(p_segment):
+                        logger.warning(f"Segment lengths don't match for lag {lag}: {len(s_segment)} vs {len(p_segment)}")
+                        continue
+                        
+                    corr, p_value = pearsonr(s_segment, p_segment)
+                    
+                elif lag > 0:
+                    # Price leads sentiment (shift sentiment forward)
+                    if lag >= len(sentiment_series):
+                        # Skip if lag is larger than series length
+                        continue
+                        
+                    # Calculate correlation on truncated series of equal length
+                    segment_length = min(len(sentiment_series) - lag, len(price_series) - lag)
+                    if segment_length < 3:  # Need at least 3 points for correlation
+                        continue
+                        
+                    s_segment = sentiment_series[lag:lag+segment_length]
+                    p_segment = price_series[:segment_length]
+                    
+                    if len(s_segment) != len(p_segment):
+                        logger.warning(f"Segment lengths don't match for lag {lag}: {len(s_segment)} vs {len(p_segment)}")
+                        continue
+                        
+                    corr, p_value = pearsonr(s_segment, p_segment)
+                    
+                else:
+                    # No lag
+                    segment_length = min(len(sentiment_series), len(price_series))
+                    s_segment = sentiment_series[:segment_length]
+                    p_segment = price_series[:segment_length]
+                    corr, p_value = pearsonr(s_segment, p_segment)
+                
+                lagged_correlations.append({
+                    'lag': lag,
+                    'lag_minutes': lag * window_size,
+                    'correlation': corr,
+                    'p_value': p_value
+                })
+                
+            except Exception as e:
+                logger.error(f"Error calculating correlation for lag {lag}: {e}")
+                # Continue with next lag despite errors
         
         # Find the best lag
+        if not lagged_correlations:
+            return {
+                'symbol': symbol,
+                'start_date': start_date,
+                'end_date': end_date,
+                'window_size': window_size,
+                'data_points': len(price_series),
+                'lag_correlations': [],
+                'best_lag': None,
+                'best_lag_minutes': None,
+                'best_correlation': None,
+                'best_p_value': None
+            }
+            
         best_lag = max(lagged_correlations, key=lambda x: abs(x['correlation']))
         
         results = {
@@ -218,15 +270,29 @@ class TimeLagAnalyzer:
             symbol = stock['symbol']
             logger.info(f"Analyzing time lag for {symbol}")
             
-            lag_results = self.analyze_lag_correlation(
-                symbol, 
-                start_date, 
-                end_date, 
-                window_size,
-                max_lag
-            )
-            
-            all_results[symbol] = lag_results
+            try:
+                lag_results = self.analyze_lag_correlation(
+                    symbol, 
+                    start_date, 
+                    end_date, 
+                    window_size,
+                    max_lag
+                )
+                
+                all_results[symbol] = lag_results
+            except Exception as e:
+                logger.error(f"Error analyzing time lag for {symbol}: {e}")
+                all_results[symbol] = {
+                    'symbol': symbol,
+                    'start_date': start_date,
+                    'end_date': end_date,
+                    'window_size': window_size,
+                    'error': str(e),
+                    'lag_correlations': [],
+                    'best_lag': None,
+                    'best_lag_minutes': None,
+                    'best_correlation': None
+                }
         
         return all_results
     
@@ -270,8 +336,9 @@ class TimeLagAnalyzer:
         ax1.grid(True)
         
         # Highlight best lag
-        best_idx = lags.index(results['best_lag'])
-        ax1.bar([lags[best_idx]], [correlations[best_idx]], color='green', alpha=0.7)
+        if results['best_lag'] is not None and results['best_lag'] in lags:
+            best_idx = lags.index(results['best_lag'])
+            ax1.bar([lags[best_idx]], [correlations[best_idx]], color='green', alpha=0.7)
         
         # Plot 2: Time Series
         price_series, sentiment_series, timestamps = self._prepare_time_series(
@@ -340,7 +407,7 @@ class TimeLagAnalyzer:
         ]
         
         for symbol, result in all_results.items():
-            if result['best_lag'] is not None:
+            if result.get('best_lag') is not None:
                 interpretation = ""
                 if result['best_lag'] < 0:
                     interpretation = f"Sentiment leads price by {abs(result['best_lag_minutes'])} minutes"
@@ -349,12 +416,15 @@ class TimeLagAnalyzer:
                 else:
                     interpretation = "Contemporaneous relationship"
                 
+                p_value = result.get('best_p_value', "N/A")
+                p_value_str = f"{p_value:.4f}" if isinstance(p_value, (int, float)) else p_value
+                
                 report.append(
                     f"| {symbol} | "
                     f"{result['best_lag']} | "
                     f"{result['best_lag_minutes']} | "
                     f"{result['best_correlation']:.4f} | "
-                    f"{result['best_p_value']:.4f} | "
+                    f"{p_value_str} | "
                     f"{interpretation} |"
                 )
         
@@ -370,8 +440,8 @@ class TimeLagAnalyzer:
         
         # Sort by absolute correlation
         sorted_results = sorted(
-            all_results.values(), 
-            key=lambda x: abs(x.get('best_correlation', 0)) if x.get('best_correlation') is not None else 0,
+            [r for r in all_results.values() if r.get('best_correlation') is not None],
+            key=lambda x: abs(x.get('best_correlation', 0)),
             reverse=True
         )
         
@@ -380,7 +450,7 @@ class TimeLagAnalyzer:
                 corr_strength = "strong" if abs(result['best_correlation']) > 0.5 else "moderate" if abs(result['best_correlation']) > 0.3 else "weak"
                 corr_direction = "positive" if result['best_correlation'] > 0 else "negative"
                 lag_direction = "negative" if result['best_lag'] < 0 else "positive" if result['best_lag'] > 0 else "zero"
-                significance = "statistically significant" if result['best_p_value'] < 0.05 else "not statistically significant"
+                significance = "statistically significant" if result.get('best_p_value', 1) < 0.05 else "not statistically significant"
                 
                 interpretation = ""
                 if result['best_lag'] < 0:
@@ -403,7 +473,7 @@ class TimeLagAnalyzer:
                     f"\n### {result['symbol']}",
                     f"- **Best Lag:** {result['best_lag']} windows ({result['best_lag_minutes']} minutes)",
                     f"- **Correlation at Best Lag:** {result['best_correlation']:.4f} ({corr_strength} {corr_direction})",
-                    f"- **Statistical Significance:** p-value = {result['best_p_value']:.4f} ({significance})",
+                    f"- **Statistical Significance:** p-value = {result.get('best_p_value', 'N/A')} ({significance})",
                     f"- **Data Points:** {result['data_points']}",
                     f"\n**Interpretation:** The {lag_direction} lag indicates that {interpretation}. This relationship is {significance}."
                 ])
@@ -421,7 +491,7 @@ if __name__ == "__main__":
     results = analyzer.analyze_lag_correlation('AAPL', start_date, end_date)
     
     print(f"AAPL Best Lag: {results['best_lag']} windows ({results['best_lag_minutes']} minutes)")
-    print(f"Correlation at Best Lag: {results['best_correlation']:.4f} (p-value: {results['best_p_value']:.4f})")
+    print(f"Correlation at Best Lag: {results['best_correlation']:.4f} (p-value: {results.get('best_p_value', 'N/A')})")
     
     # Generate and save plot
     fig = analyzer.plot_lag_analysis('AAPL', start_date, end_date)
