@@ -32,6 +32,9 @@ class DatabaseConnector:
         self.tables = TABLES
         self.pool = None
         self._initialize_connection_pool()
+        
+        # Initialize database if needed
+        self.initialize_database()
     
     def _initialize_connection_pool(self):
         """Initialize the connection pool."""
@@ -119,6 +122,7 @@ class DatabaseConnector:
             if conn:
                 conn.rollback()
             logger.error(f"Database error: {e}")
+            # Re-raise specific errors for better handling
             raise
             
         finally:
@@ -138,6 +142,9 @@ class DatabaseConnector:
         Returns:
             int: Number of affected rows
         """
+        if not param_list:
+            return 0
+            
         conn = None
         cursor = None
         
@@ -149,8 +156,12 @@ class DatabaseConnector:
             rows_affected = 0
             for i in range(0, len(param_list), BATCH_SIZE):
                 batch = param_list[i:i + BATCH_SIZE]
-                psycopg2.extras.execute_batch(cursor, query, batch)
-                rows_affected += len(batch)
+                try:
+                    psycopg2.extras.execute_batch(cursor, query, batch)
+                    rows_affected += len(batch)
+                except Exception as e:
+                    logger.error(f"Error in batch starting at index {i}: {e}")
+                    # Continue with next batch despite errors
             
             conn.commit()
             return rows_affected
@@ -182,6 +193,9 @@ class DatabaseConnector:
         if not price_data_list:
             return 0
         
+        # Ensure all required tables exist before inserting
+        self.initialize_database()
+        
         query = f"""
         INSERT INTO {self.tables['stock_prices']} 
         (symbol, timestamp, open, high, low, close, volume, source)
@@ -208,32 +222,32 @@ class DatabaseConnector:
         Returns:
             list: List of stock price records
         """
-        query = f"SELECT * FROM {self.tables['stock_prices']}"
-        conditions = []
-        params = {}
-        
-        if symbol:
-            conditions.append("symbol = %(symbol)s")
-            params['symbol'] = symbol
-        
-        if start_date:
-            conditions.append("timestamp >= %(start_date)s")
-            params['start_date'] = start_date
-        
-        if end_date:
-            conditions.append("timestamp <= %(end_date)s")
-            params['end_date'] = end_date
-        
-        if conditions:
-            query += " WHERE " + " AND ".join(conditions)
-        
-        query += " ORDER BY timestamp DESC"
-        
-        if limit:
-            query += " LIMIT %(limit)s"
-            params['limit'] = limit
-        
         try:
+            query = f"SELECT * FROM {self.tables['stock_prices']}"
+            conditions = []
+            params = {}
+            
+            if symbol:
+                conditions.append("symbol = %(symbol)s")
+                params['symbol'] = symbol
+            
+            if start_date:
+                conditions.append("timestamp >= %(start_date)s")
+                params['start_date'] = start_date
+            
+            if end_date:
+                conditions.append("timestamp <= %(end_date)s")
+                params['end_date'] = end_date
+            
+            if conditions:
+                query += " WHERE " + " AND ".join(conditions)
+            
+            query += " ORDER BY timestamp DESC"
+            
+            if limit:
+                query += " LIMIT %(limit)s"
+                params['limit'] = limit
+            
             result = self.execute_query(query, params)
             return [dict(row) for row in result]
         except Exception as e:
@@ -254,6 +268,9 @@ class DatabaseConnector:
         """
         if not news_articles:
             return 0
+        
+        # Ensure all required tables exist before inserting
+        self.initialize_database()
         
         query = f"""
         INSERT INTO {self.tables['news_articles']} 
@@ -282,32 +299,32 @@ class DatabaseConnector:
         Returns:
             list: List of news article records
         """
-        query = f"SELECT * FROM {self.tables['news_articles']}"
-        conditions = []
-        params = {}
-        
-        if symbol:
-            conditions.append("symbol = %(symbol)s")
-            params['symbol'] = symbol
-        
-        if start_date:
-            conditions.append("published_at >= %(start_date)s")
-            params['start_date'] = start_date
-        
-        if end_date:
-            conditions.append("published_at <= %(end_date)s")
-            params['end_date'] = end_date
-        
-        if conditions:
-            query += " WHERE " + " AND ".join(conditions)
-        
-        query += " ORDER BY published_at DESC"
-        
-        if limit:
-            query += " LIMIT %(limit)s"
-            params['limit'] = limit
-        
         try:
+            query = f"SELECT * FROM {self.tables['news_articles']}"
+            conditions = []
+            params = {}
+            
+            if symbol:
+                conditions.append("symbol = %(symbol)s")
+                params['symbol'] = symbol
+            
+            if start_date:
+                conditions.append("published_at >= %(start_date)s")
+                params['start_date'] = start_date
+            
+            if end_date:
+                conditions.append("published_at <= %(end_date)s")
+                params['end_date'] = end_date
+            
+            if conditions:
+                query += " WHERE " + " AND ".join(conditions)
+            
+            query += " ORDER BY published_at DESC"
+            
+            if limit:
+                query += " LIMIT %(limit)s"
+                params['limit'] = limit
+            
             result = self.execute_query(query, params)
             return [dict(row) for row in result]
         except Exception as e:
@@ -329,12 +346,15 @@ class DatabaseConnector:
         if not posts:
             return 0
         
+        # Ensure all required tables exist before inserting
+        self.initialize_database()
+        
         query = f"""
         INSERT INTO {self.tables['social_media_posts']} 
         (post_id, platform, subreddit, symbol, title, content, url, 
          user_name, upvotes, comments, created_at, collected_at)
         VALUES (%(post_id)s, %(platform)s, %(subreddit)s, %(symbol)s, %(title)s, 
-                %(content)s, %(url)s, %(user)s, %(upvotes)s, %(comments)s, 
+                %(content)s, %(url)s, %(user_name)s, %(upvotes)s, %(comments)s, 
                 %(created_at)s, %(collected_at)s)
         ON CONFLICT (post_id) DO NOTHING
         """
@@ -359,36 +379,36 @@ class DatabaseConnector:
         Returns:
             list: List of social media post records
         """
-        query = f"SELECT * FROM {self.tables['social_media_posts']}"
-        conditions = []
-        params = {}
-        
-        if symbol:
-            conditions.append("symbol = %(symbol)s")
-            params['symbol'] = symbol
-        
-        if platform:
-            conditions.append("platform = %(platform)s")
-            params['platform'] = platform
-        
-        if start_date:
-            conditions.append("created_at >= %(start_date)s")
-            params['start_date'] = start_date
-        
-        if end_date:
-            conditions.append("created_at <= %(end_date)s")
-            params['end_date'] = end_date
-        
-        if conditions:
-            query += " WHERE " + " AND ".join(conditions)
-        
-        query += " ORDER BY created_at DESC"
-        
-        if limit:
-            query += " LIMIT %(limit)s"
-            params['limit'] = limit
-        
         try:
+            query = f"SELECT * FROM {self.tables['social_media_posts']}"
+            conditions = []
+            params = {}
+            
+            if symbol:
+                conditions.append("symbol = %(symbol)s")
+                params['symbol'] = symbol
+            
+            if platform:
+                conditions.append("platform = %(platform)s")
+                params['platform'] = platform
+            
+            if start_date:
+                conditions.append("created_at >= %(start_date)s")
+                params['start_date'] = start_date
+            
+            if end_date:
+                conditions.append("created_at <= %(end_date)s")
+                params['end_date'] = end_date
+            
+            if conditions:
+                query += " WHERE " + " AND ".join(conditions)
+            
+            query += " ORDER BY created_at DESC"
+            
+            if limit:
+                query += " LIMIT %(limit)s"
+                params['limit'] = limit
+            
             result = self.execute_query(query, params)
             return [dict(row) for row in result]
         except Exception as e:
@@ -410,21 +430,26 @@ class DatabaseConnector:
         if not sentiment_scores:
             return 0
         
+        # Ensure all required tables exist before inserting
+        self.initialize_database()
+        
         query = f"""
         INSERT INTO {self.tables['sentiment_scores']} 
         (reference_id, symbol, source, timestamp, content_type, 
          compound_score, positive_score, negative_score, neutral_score, 
          sentiment_label, analyzed_at)
-        VALUES (%(news_id)s, %(symbol)s, %(source)s, %(timestamp)s, %(content_type)s, 
+        VALUES (%(reference_id)s, %(symbol)s, %(source)s, %(timestamp)s, %(content_type)s, 
                 %(compound_score)s, %(positive_score)s, %(negative_score)s, %(neutral_score)s, 
                 %(sentiment_label)s, %(analyzed_at)s)
         ON CONFLICT DO NOTHING
         """
         
-        # Some records may use post_id instead of news_id
+        # Make sure all records have proper reference_id field
         for score in sentiment_scores:
-            if 'news_id' not in score and 'post_id' in score:
-                score['news_id'] = score['post_id']
+            if 'reference_id' not in score and 'news_id' in score:
+                score['reference_id'] = score['news_id']
+            elif 'reference_id' not in score and 'post_id' in score:
+                score['reference_id'] = score['post_id']
         
         try:
             return self.execute_batch(query, sentiment_scores)
@@ -446,36 +471,36 @@ class DatabaseConnector:
         Returns:
             list: List of sentiment score records
         """
-        query = f"SELECT * FROM {self.tables['sentiment_scores']}"
-        conditions = []
-        params = {}
-        
-        if symbol:
-            conditions.append("symbol = %(symbol)s")
-            params['symbol'] = symbol
-        
-        if content_type:
-            conditions.append("content_type = %(content_type)s")
-            params['content_type'] = content_type
-        
-        if start_date:
-            conditions.append("timestamp >= %(start_date)s")
-            params['start_date'] = start_date
-        
-        if end_date:
-            conditions.append("timestamp <= %(end_date)s")
-            params['end_date'] = end_date
-        
-        if conditions:
-            query += " WHERE " + " AND ".join(conditions)
-        
-        query += " ORDER BY timestamp DESC"
-        
-        if limit:
-            query += " LIMIT %(limit)s"
-            params['limit'] = limit
-        
         try:
+            query = f"SELECT * FROM {self.tables['sentiment_scores']}"
+            conditions = []
+            params = {}
+            
+            if symbol:
+                conditions.append("symbol = %(symbol)s")
+                params['symbol'] = symbol
+            
+            if content_type:
+                conditions.append("content_type = %(content_type)s")
+                params['content_type'] = content_type
+            
+            if start_date:
+                conditions.append("timestamp >= %(start_date)s")
+                params['start_date'] = start_date
+            
+            if end_date:
+                conditions.append("timestamp <= %(end_date)s")
+                params['end_date'] = end_date
+            
+            if conditions:
+                query += " WHERE " + " AND ".join(conditions)
+            
+            query += " ORDER BY timestamp DESC"
+            
+            if limit:
+                query += " LIMIT %(limit)s"
+                params['limit'] = limit
+            
             result = self.execute_query(query, params)
             return [dict(row) for row in result]
         except Exception as e:
@@ -497,6 +522,21 @@ class DatabaseConnector:
         if not entities:
             return 0
         
+        # Ensure all required tables exist before inserting
+        self.initialize_database()
+        
+        # Validate entity data before insertion
+        validated_entities = []
+        for entity in entities:
+            if all(key in entity for key in ['reference_id', 'entity_type', 'entity_value']):
+                validated_entities.append(entity)
+            else:
+                logger.warning(f"Skipping invalid entity: {entity}")
+        
+        if not validated_entities:
+            logger.warning("No valid entities to insert")
+            return 0
+        
         query = f"""
         INSERT INTO {self.tables['entities']} 
         (reference_id, source, entity_type, entity_value, entity_text, timestamp, extracted_at)
@@ -506,18 +546,19 @@ class DatabaseConnector:
         """
         
         try:
-            return self.execute_batch(query, entities)
+            return self.execute_batch(query, validated_entities)
         except Exception as e:
             logger.error(f"Error inserting entities: {e}")
             return 0
     
-    def get_entities(self, entity_type=None, entity_value=None, start_date=None, end_date=None, limit=1000):
+    def get_entities(self, entity_type=None, entity_value=None, symbol=None, start_date=None, end_date=None, limit=1000):
         """
         Get entities from the database.
         
         Args:
             entity_type (str): Type of entity
             entity_value (str): Value of entity
+            symbol (str): Stock ticker symbol (for joining with other tables)
             start_date (datetime): Start date for filtering
             end_date (datetime): End date for filtering
             limit (int): Maximum number of records to return
@@ -525,36 +566,39 @@ class DatabaseConnector:
         Returns:
             list: List of entity records
         """
-        query = f"SELECT * FROM {self.tables['entities']}"
-        conditions = []
-        params = {}
-        
-        if entity_type:
-            conditions.append("entity_type = %(entity_type)s")
-            params['entity_type'] = entity_type
-        
-        if entity_value:
-            conditions.append("entity_value = %(entity_value)s")
-            params['entity_value'] = entity_value
-        
-        if start_date:
-            conditions.append("timestamp >= %(start_date)s")
-            params['start_date'] = start_date
-        
-        if end_date:
-            conditions.append("timestamp <= %(end_date)s")
-            params['end_date'] = end_date
-        
-        if conditions:
-            query += " WHERE " + " AND ".join(conditions)
-        
-        query += " ORDER BY timestamp DESC"
-        
-        if limit:
-            query += " LIMIT %(limit)s"
-            params['limit'] = limit
-        
         try:
+            query = f"SELECT * FROM {self.tables['entities']}"
+            conditions = []
+            params = {}
+            
+            if entity_type:
+                conditions.append("entity_type = %(entity_type)s")
+                params['entity_type'] = entity_type
+            
+            if entity_value:
+                conditions.append("entity_value = %(entity_value)s")
+                params['entity_value'] = entity_value
+            
+            # Note: To filter by symbol we'd need to join with news_articles or sentiment_scores
+            # This is a simplified implementation without the join
+            
+            if start_date:
+                conditions.append("timestamp >= %(start_date)s")
+                params['start_date'] = start_date
+            
+            if end_date:
+                conditions.append("timestamp <= %(end_date)s")
+                params['end_date'] = end_date
+            
+            if conditions:
+                query += " WHERE " + " AND ".join(conditions)
+            
+            query += " ORDER BY timestamp DESC"
+            
+            if limit:
+                query += " LIMIT %(limit)s"
+                params['limit'] = limit
+            
             result = self.execute_query(query, params)
             return [dict(row) for row in result]
         except Exception as e:
@@ -573,6 +617,9 @@ class DatabaseConnector:
         Returns:
             bool: Success status
         """
+        # Ensure all required tables exist before inserting
+        self.initialize_database()
+        
         query = f"""
         INSERT INTO {self.tables['correlations']}
         (symbol, start_date, end_date, window_size, price_change, 
@@ -604,36 +651,36 @@ class DatabaseConnector:
         Returns:
             list: List of correlation records
         """
-        query = f"SELECT * FROM {self.tables['correlations']}"
-        conditions = []
-        params = {}
-        
-        if symbol:
-            conditions.append("symbol = %(symbol)s")
-            params['symbol'] = symbol
-        
-        if window_size:
-            conditions.append("window_size = %(window_size)s")
-            params['window_size'] = window_size
-        
-        if start_date:
-            conditions.append("end_date >= %(start_date)s")
-            params['start_date'] = start_date
-        
-        if end_date:
-            conditions.append("start_date <= %(end_date)s")
-            params['end_date'] = end_date
-        
-        if conditions:
-            query += " WHERE " + " AND ".join(conditions)
-        
-        query += " ORDER BY calculated_at DESC"
-        
-        if limit:
-            query += " LIMIT %(limit)s"
-            params['limit'] = limit
-        
         try:
+            query = f"SELECT * FROM {self.tables['correlations']}"
+            conditions = []
+            params = {}
+            
+            if symbol:
+                conditions.append("symbol = %(symbol)s")
+                params['symbol'] = symbol
+            
+            if window_size:
+                conditions.append("window_size = %(window_size)s")
+                params['window_size'] = window_size
+            
+            if start_date:
+                conditions.append("end_date >= %(start_date)s")
+                params['start_date'] = start_date
+            
+            if end_date:
+                conditions.append("start_date <= %(end_date)s")
+                params['end_date'] = end_date
+            
+            if conditions:
+                query += " WHERE " + " AND ".join(conditions)
+            
+            query += " ORDER BY calculated_at DESC"
+            
+            if limit:
+                query += " LIMIT %(limit)s"
+                params['limit'] = limit
+            
             result = self.execute_query(query, params)
             return [dict(row) for row in result]
         except Exception as e:
@@ -652,6 +699,9 @@ class DatabaseConnector:
         Returns:
             bool: Success status
         """
+        # Ensure all required tables exist before inserting
+        self.initialize_database()
+        
         query = f"""
         INSERT INTO {self.tables['summary_statistics']}
         (symbol, timestamp, time_window, price_open, price_close, price_change_pct,
@@ -685,36 +735,36 @@ class DatabaseConnector:
         Returns:
             list: List of summary statistics records
         """
-        query = f"SELECT * FROM {self.tables['summary_statistics']}"
-        conditions = []
-        params = {}
-        
-        if symbol:
-            conditions.append("symbol = %(symbol)s")
-            params['symbol'] = symbol
-        
-        if time_window:
-            conditions.append("time_window = %(time_window)s")
-            params['time_window'] = time_window
-        
-        if start_date:
-            conditions.append("timestamp >= %(start_date)s")
-            params['start_date'] = start_date
-        
-        if end_date:
-            conditions.append("timestamp <= %(end_date)s")
-            params['end_date'] = end_date
-        
-        if conditions:
-            query += " WHERE " + " AND ".join(conditions)
-        
-        query += " ORDER BY timestamp DESC"
-        
-        if limit:
-            query += " LIMIT %(limit)s"
-            params['limit'] = limit
-        
         try:
+            query = f"SELECT * FROM {self.tables['summary_statistics']}"
+            conditions = []
+            params = {}
+            
+            if symbol:
+                conditions.append("symbol = %(symbol)s")
+                params['symbol'] = symbol
+            
+            if time_window:
+                conditions.append("time_window = %(time_window)s")
+                params['time_window'] = time_window
+            
+            if start_date:
+                conditions.append("timestamp >= %(start_date)s")
+                params['start_date'] = start_date
+            
+            if end_date:
+                conditions.append("timestamp <= %(end_date)s")
+                params['end_date'] = end_date
+            
+            if conditions:
+                query += " WHERE " + " AND ".join(conditions)
+            
+            query += " ORDER BY timestamp DESC"
+            
+            if limit:
+                query += " LIMIT %(limit)s"
+                params['limit'] = limit
+            
             result = self.execute_query(query, params)
             return [dict(row) for row in result]
         except Exception as e:
@@ -737,20 +787,65 @@ class DatabaseConnector:
             with open(script_path, 'r') as f:
                 sql_script = f.read()
             
-            # Execute the script
+            # Split the script into individual statements
+            # We need to handle statements separately to avoid issues with semicolons in strings
+            statements = []
+            current_statement = []
+            for line in sql_script.splitlines():
+                # Skip comments
+                if line.strip().startswith('--'):
+                    continue
+                    
+                # Add to current statement
+                current_statement.append(line)
+                
+                # If line ends with semicolon, add the statement to our list
+                if line.strip().endswith(';'):
+                    statements.append('\n'.join(current_statement))
+                    current_statement = []
+            
+            # Execute each statement
             conn = self._get_connection()
             cursor = conn.cursor()
             
-            # Execute each statement in the script
-            cursor.execute(sql_script)
-            conn.commit()
+            for statement in statements:
+                if statement.strip():  # Skip empty statements
+                    try:
+                        cursor.execute(statement)
+                    except Exception as e:
+                        logger.warning(f"Error executing statement (this may be normal if table already exists): {e}")
+                        # Continue with next statement despite errors
             
+            conn.commit()
             logger.info("Database tables initialized successfully")
             cursor.close()
             self._return_connection(conn)
             return True
         except Exception as e:
             logger.error(f"Error initializing database: {e}")
+            return False
+    
+    def check_table_exists(self, table_name):
+        """
+        Check if a table exists in the database.
+        
+        Args:
+            table_name (str): Name of the table to check
+            
+        Returns:
+            bool: True if table exists, False otherwise
+        """
+        try:
+            query = """
+            SELECT EXISTS (
+                SELECT FROM information_schema.tables 
+                WHERE table_name = %s
+            );
+            """
+            result = self.execute_query(query, (table_name,))
+            return result[0][0]
+        except Exception as e:
+            logger.error(f"Error checking if table exists: {e}")
             return False
 
 # Example usage

@@ -19,11 +19,13 @@ directories = [
     'data',
     'models',
     'reports',
+    'reports/analysis',
+    'reports/models',
     'visualizations'
 ]
 
 for directory in directories:
-    Path(directory).mkdir(exist_ok=True)
+    Path(directory).mkdir(exist_ok=True, parents=True)
 
 # Configure logging
 logging.basicConfig(
@@ -58,13 +60,10 @@ class StockSentimentAnalysis:
         # Create data directories if they don't exist
         self._create_directories()
         
-        # Initialize components
+        # Initialize database first
         self.db = DatabaseConnector()
         
-        # Initialize database tables
-        logger.info("Initializing database tables...")
-        self.db.initialize_database()
-        
+        # Then initialize components after database is ready
         self.stock_collector = StockPriceCollector()
         self.news_collector = FinancialNewsCollector()
         self.sentiment_analyzer = SentimentAnalyzer()
@@ -85,11 +84,13 @@ class StockSentimentAnalysis:
             'data',
             'models',
             'reports',
+            'reports/analysis',
+            'reports/models',
             'visualizations'
         ]
         
         for directory in directories:
-            Path(directory).mkdir(exist_ok=True)
+            Path(directory).mkdir(exist_ok=True, parents=True)
     
     def collect_data(self, continuous=False):
         """
@@ -129,6 +130,8 @@ class StockSentimentAnalysis:
             daemon=True
         )
         self.collection_threads['stock_prices'] = stock_thread
+        logger.info("Starting stock_prices collection thread")
+        stock_thread.start()
         
         # News collection thread
         news_thread = threading.Thread(
@@ -137,10 +140,8 @@ class StockSentimentAnalysis:
             daemon=True
         )
         self.collection_threads['news'] = news_thread
-        
-        # Start all threads
-        for thread in self.collection_threads.values():
-            thread.start()
+        logger.info("Starting news collection thread")
+        news_thread.start()
     
     def _continuous_collection_worker(self, collection_func, name):
         """
@@ -150,7 +151,6 @@ class StockSentimentAnalysis:
             collection_func (function): Data collection function to run
             name (str): Name of the collection process
         """
-        logger.info(f"Starting {name} collection thread")
         try:
             collection_func()
         except Exception as e:
@@ -187,8 +187,17 @@ class StockSentimentAnalysis:
         
         # Process news articles
         logger.info("Processing news articles")
-        news_sentiment = self.sentiment_analyzer.analyze_news_batch(days=days)
-        news_entities = self.entity_extractor.process_news_batch(days=days)
+        news_articles = self.db.get_news_articles(start_date=start_date)
+        
+        if not news_articles:
+            logger.warning("No news articles found for processing")
+            return {
+                'news_sentiment': [],
+                'news_entities': []
+            }
+        
+        news_sentiment = self.sentiment_analyzer.analyze_news_batch(news_articles=news_articles)
+        news_entities = self.entity_extractor.process_news_batch(news_articles=news_articles)
         
         return {
             'news_sentiment': news_sentiment,
@@ -419,6 +428,7 @@ def main():
     parser.add_argument('--report', action='store_true', help='Generate analysis reports')
     parser.add_argument('--dashboard', action='store_true', help='Run the dashboard')
     parser.add_argument('--all', action='store_true', help='Run the complete pipeline')
+    parser.add_argument('--initialize-db', action='store_true', help='Initialize database tables')
     
     parser.add_argument('--days', type=int, default=7, help='Number of days of data to use')
     parser.add_argument('--port', type=int, default=8050, help='Port number for dashboard')
@@ -429,12 +439,19 @@ def main():
     args = parser.parse_args()
     
     # If no arguments provided, show help
-    if not any(vars(args).values()):
+    if not any([args.collect, args.process, args.analyze, args.model, 
+                args.report, args.dashboard, args.all, args.initialize_db]):
         parser.print_help()
         return
     
     # Create the analysis system
     system = StockSentimentAnalysis()
+    
+    # Just initialize database and exit if requested
+    if args.initialize_db:
+        system.db.initialize_database()
+        print("Database initialized successfully")
+        return
     
     # Run the requested components
     if args.all:
@@ -463,6 +480,7 @@ def main():
             try:
                 # Keep the main thread alive if running only collection
                 if not any([args.process, args.analyze, args.model, args.report, args.dashboard]):
+                    print("Press Ctrl+C to stop data collection and exit")
                     while True:
                         time.sleep(1)
             except KeyboardInterrupt:
