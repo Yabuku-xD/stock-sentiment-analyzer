@@ -1,7 +1,7 @@
 # Sentiment-Price Correlation Analysis Report
 **Date Range:** 2025-03-23 to 2025-03-30
 **Window Size:** 60 minutes
-**Generated:** 2025-03-30 12:36:42
+**Generated:** 2025-03-30 12:55:37
 
 ## Summary of Findings
 The following table shows the correlation between sentiment scores and price changes for each stock:

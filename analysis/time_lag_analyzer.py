@@ -69,9 +69,13 @@ class TimeLagAnalyzer:
         prices_df = pd.DataFrame(price_data)
         sentiment_df = pd.DataFrame(sentiment_data)
         
+        # Ensure timestamp columns are datetime type
+        prices_df['timestamp'] = pd.to_datetime(prices_df['timestamp'])
+        sentiment_df['timestamp'] = pd.to_datetime(sentiment_df['timestamp'])
+        
         # Create time window buckets
-        prices_df['window'] = pd.to_datetime(prices_df['timestamp']).dt.floor(f'{window_size}min')
-        sentiment_df['window'] = pd.to_datetime(sentiment_df['timestamp']).dt.floor(f'{window_size}min')
+        prices_df['window'] = prices_df['timestamp'].dt.floor(f'{window_size}min')
+        sentiment_df['window'] = sentiment_df['timestamp'].dt.floor(f'{window_size}min')
         
         # Aggregate data by time windows
         price_windows = prices_df.groupby('window').agg({
@@ -84,7 +88,11 @@ class TimeLagAnalyzer:
         }).reset_index()
         
         # Calculate price changes
-        price_windows['price_change'] = (price_windows['close'] - price_windows['open']) / price_windows['open'] * 100
+        if 'open' in price_windows.columns and 'close' in price_windows.columns:
+            price_windows['price_change'] = (price_windows['close'] - price_windows['open']) / price_windows['open'] * 100
+        else:
+            logger.warning(f"Missing required price columns for {symbol}")
+            return None, None, None
         
         # Create a full timestamp range to ensure all intervals are included
         full_range = pd.date_range(start=start_date, end=end_date, freq=f'{window_size}min')
@@ -94,6 +102,10 @@ class TimeLagAnalyzer:
         price_windows = pd.merge(full_df, price_windows, on='window', how='left')
         sentiment_windows = pd.merge(full_df, sentiment_windows, on='window', how='left')
         
+        # Convert to numeric before interpolation to avoid object type warning
+        price_windows['price_change'] = pd.to_numeric(price_windows['price_change'], errors='coerce')
+        sentiment_windows['compound_score'] = pd.to_numeric(sentiment_windows['compound_score'], errors='coerce')
+        
         # Interpolate missing values (linear interpolation)
         price_windows['price_change'] = price_windows['price_change'].interpolate(method='linear')
         sentiment_windows['compound_score'] = sentiment_windows['compound_score'].interpolate(method='linear')
@@ -102,6 +114,10 @@ class TimeLagAnalyzer:
         timestamps = full_range
         price_series = price_windows['price_change'].values
         sentiment_series = sentiment_windows['compound_score'].values
+        
+        # Ensure arrays are numeric
+        price_series = np.array(price_series, dtype=float)
+        sentiment_series = np.array(sentiment_series, dtype=float)
         
         # Handle any remaining NaN values
         price_series = np.nan_to_num(price_series)
@@ -140,10 +156,14 @@ class TimeLagAnalyzer:
             }
         
         # Calculate cross-correlation function
-        cross_corr = ccf(sentiment_series, price_series, adjusted=False)
+        try:
+            cross_corr = ccf(sentiment_series, price_series, adjusted=False, method='direct')
+        except Exception as e:
+            logger.warning(f"Error calculating cross-correlation: {e}")
+            cross_corr = []
         
         # Extract correlations for the lags we're interested in
-        mid_point = len(cross_corr) // 2
+        mid_point = len(cross_corr) // 2 if len(cross_corr) > 0 else 0
         lag_correlations = []
         
         for lag in range(-max_lag, max_lag + 1):
@@ -152,7 +172,7 @@ class TimeLagAnalyzer:
                 lag_correlations.append({
                     'lag': lag,
                     'lag_minutes': lag * window_size,
-                    'correlation': cross_corr[corr_idx]
+                    'correlation': float(cross_corr[corr_idx])
                 })
         
         # Alternatively, calculate correlations with shifted series
@@ -170,11 +190,16 @@ class TimeLagAnalyzer:
                     if segment_length < 3:  # Need at least 3 points for correlation
                         continue
                         
-                    s_segment = sentiment_series[:segment_length]
-                    p_segment = price_series[abs(lag):abs(lag)+segment_length]
+                    s_segment = sentiment_series[:segment_length].astype(float)
+                    p_segment = price_series[abs(lag):abs(lag)+segment_length].astype(float)
                     
                     if len(s_segment) != len(p_segment):
                         logger.warning(f"Segment lengths don't match for lag {lag}: {len(s_segment)} vs {len(p_segment)}")
+                        continue
+                        
+                    # Check for non-finite values
+                    if not np.isfinite(s_segment).all() or not np.isfinite(p_segment).all():
+                        logger.warning(f"Non-finite values found in segments for lag {lag}")
                         continue
                         
                     corr, p_value = pearsonr(s_segment, p_segment)
@@ -190,11 +215,16 @@ class TimeLagAnalyzer:
                     if segment_length < 3:  # Need at least 3 points for correlation
                         continue
                         
-                    s_segment = sentiment_series[lag:lag+segment_length]
-                    p_segment = price_series[:segment_length]
+                    s_segment = sentiment_series[lag:lag+segment_length].astype(float)
+                    p_segment = price_series[:segment_length].astype(float)
                     
                     if len(s_segment) != len(p_segment):
                         logger.warning(f"Segment lengths don't match for lag {lag}: {len(s_segment)} vs {len(p_segment)}")
+                        continue
+                    
+                    # Check for non-finite values
+                    if not np.isfinite(s_segment).all() or not np.isfinite(p_segment).all():
+                        logger.warning(f"Non-finite values found in segments for lag {lag}")
                         continue
                         
                     corr, p_value = pearsonr(s_segment, p_segment)
@@ -202,15 +232,21 @@ class TimeLagAnalyzer:
                 else:
                     # No lag
                     segment_length = min(len(sentiment_series), len(price_series))
-                    s_segment = sentiment_series[:segment_length]
-                    p_segment = price_series[:segment_length]
+                    s_segment = sentiment_series[:segment_length].astype(float)
+                    p_segment = price_series[:segment_length].astype(float)
+                    
+                    # Check for non-finite values
+                    if not np.isfinite(s_segment).all() or not np.isfinite(p_segment).all():
+                        logger.warning(f"Non-finite values found in segments for lag {lag}")
+                        continue
+                        
                     corr, p_value = pearsonr(s_segment, p_segment)
                 
                 lagged_correlations.append({
                     'lag': lag,
                     'lag_minutes': lag * window_size,
-                    'correlation': corr,
-                    'p_value': p_value
+                    'correlation': float(corr),
+                    'p_value': float(p_value)
                 })
                 
             except Exception as e:
