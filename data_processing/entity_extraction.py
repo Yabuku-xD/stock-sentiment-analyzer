@@ -290,7 +290,10 @@ class EntityExtractor:
         
         # Store results in the database
         if db_entities:
-            self.db.insert_entities(db_entities)
+            try:
+                self.db.insert_entities(db_entities)
+            except Exception as e:
+                logger.error(f"Error inserting entities: {e}")
         
         return results
     
@@ -322,7 +325,7 @@ class EntityExtractor:
             result = {
                 'reference_id': post['post_id'],
                 'symbol': post['symbol'],
-                'source': f"{post['platform']}-{post['subreddit']}" if post['subreddit'] else post['platform'],
+                'source': f"{post['platform']}-{post['subreddit']}" if post.get('subreddit') else post['platform'],
                 'timestamp': post.get('created_at', datetime.datetime.now()),
                 'content_type': 'social',
                 'entities': entities,
@@ -346,7 +349,10 @@ class EntityExtractor:
         
         # Store results in the database
         if db_entities:
-            self.db.insert_entities(db_entities)
+            try:
+                self.db.insert_entities(db_entities)
+            except Exception as e:
+                logger.error(f"Error inserting entities: {e}")
         
         return results
     
@@ -384,12 +390,16 @@ class EntityExtractor:
         tickers = []
         
         for data in entity_data:
-            entities = data['entities']
-            organizations.extend(entities.get('organizations', []))
-            persons.extend(entities.get('persons', []))
-            locations.extend(entities.get('locations', []))
-            financial_terms.extend(entities.get('financial_terms', []))
-            tickers.extend(entities.get('tickers', []))
+            if data.get('entity_type') == 'organizations':
+                organizations.append(data.get('entity_value', ''))
+            elif data.get('entity_type') == 'persons':
+                persons.append(data.get('entity_value', ''))
+            elif data.get('entity_type') == 'locations':
+                locations.append(data.get('entity_value', ''))
+            elif data.get('entity_type') == 'financial_terms':
+                financial_terms.append(data.get('entity_value', ''))
+            elif data.get('entity_type') == 'tickers':
+                tickers.append(data.get('entity_value', ''))
         
         # Count frequencies
         org_counts = pd.Series(organizations).value_counts().head(5).to_dict()

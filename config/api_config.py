@@ -10,10 +10,6 @@ FINNHUB_BASE_URL = "https://finnhub.io/api/v1"
 NEWS_API_KEY = "d461bca7b26e485abd731a2acbab10e0"
 NEWS_API_BASE_URL = "https://newsapi.org/v2"
 
-# Stock Price API configurations
-ALPHA_VANTAGE_API_KEY = "5JITA0ZCS7B6YXQ8"
-ALPHA_VANTAGE_BASE_URL = "https://www.alphavantage.co/query"
-
 # Target stocks to monitor (examples)
 TARGET_STOCKS = [
     {"symbol": "AAPL", "name": "Apple Inc."},
