@@ -1,0 +1,1313 @@
+2025-03-30 11:36:13,288 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:13,316 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:13,348 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:13,385 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:13,481 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:36:27,010 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:36:27,039 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:27,344 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 11:36:27,374 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:27,403 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:27,433 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:27,464 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:27,495 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:27,525 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:27,557 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:27,560 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:36:27,983 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:36:28,013 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:28,043 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:36:28,056 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 11:36:28,056 - __main__ - INFO - Starting continuous data collection
+2025-03-30 11:36:28,056 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 11:36:28,057 - __main__ - INFO - Starting news collection thread
+2025-03-30 11:36:28,057 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 11:36:28,058 - __main__ - INFO - Processing news articles
+2025-03-30 11:36:28,058 - __main__ - INFO - Stopping data collection
+2025-03-30 11:36:28,059 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 11:36:28,217 - data_collection.financial_news_collector - INFO - Retrieved 175 news items from Finnhub for AAPL
+2025-03-30 11:36:29,413 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 11:36:30,638 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 11:36:31,814 - data_collection.financial_news_collector - INFO - Retrieved 203 news items from Finnhub for AMZN
+2025-03-30 11:36:32,992 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 11:36:33,061 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 11:36:34,196 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 11:36:35,383 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 11:36:36,538 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 11:36:37,687 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 11:36:38,061 - __main__ - INFO - Pipeline completed
+2025-03-30 11:36:38,821 - data_collection.financial_news_collector - INFO - Retrieved 69 news items from Finnhub for WMT
+2025-03-30 11:36:40,082 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 11:36:40,085 - database.db_connector - ERROR - Database batch error: relation "stock_prices" does not exist
+LINE 2:         INSERT INTO stock_prices 
+                            ^
+
+2025-03-30 11:36:40,085 - database.db_connector - ERROR - Error inserting stock prices: relation "stock_prices" does not exist
+LINE 2:         INSERT INTO stock_prices 
+                            ^
+
+2025-03-30 11:36:40,086 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 11:36:40,346 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from NewsAPI for Apple Inc.
+2025-03-30 11:36:41,759 - data_collection.financial_news_collector - INFO - Retrieved 26 news items from NewsAPI for Microsoft Corporation
+2025-03-30 11:36:43,001 - data_collection.financial_news_collector - INFO - Retrieved 50 news items from NewsAPI for Alphabet Inc.
+2025-03-30 11:36:44,210 - data_collection.financial_news_collector - INFO - Retrieved 24 news items from NewsAPI for Amazon.com, Inc.
+2025-03-30 11:36:45,620 - data_collection.financial_news_collector - INFO - Retrieved 21 news items from NewsAPI for Tesla, Inc.
+2025-03-30 11:36:46,746 - data_collection.financial_news_collector - INFO - Retrieved 7 news items from NewsAPI for Meta Platforms, Inc.
+2025-03-30 11:36:47,895 - data_collection.financial_news_collector - INFO - Retrieved 28 news items from NewsAPI for NVIDIA Corporation
+2025-03-30 11:36:49,126 - data_collection.financial_news_collector - INFO - Retrieved 47 news items from NewsAPI for JPMorgan Chase & Co.
+2025-03-30 11:36:50,296 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Visa Inc.
+2025-03-30 11:36:51,620 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Walmart Inc.
+2025-03-30 11:36:52,621 - data_collection.financial_news_collector - INFO - Storing 1422 news articles in the database
+2025-03-30 11:36:52,624 - database.db_connector - ERROR - Database batch error: relation "news_articles" does not exist
+LINE 2:         INSERT INTO news_articles 
+                            ^
+
+2025-03-30 11:36:52,624 - database.db_connector - ERROR - Error inserting news articles: relation "news_articles" does not exist
+LINE 2:         INSERT INTO news_articles 
+                            ^
+
+2025-03-30 11:36:52,624 - data_collection.financial_news_collector - INFO - Waiting 300 seconds until next news collection
+2025-03-30 11:39:48,848 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:48,849 - __main__ - INFO - Initializing database tables...
+2025-03-30 11:39:48,880 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 11:39:48,910 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:48,940 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:48,971 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:48,976 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:39:49,494 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:39:49,523 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:49,740 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 11:39:49,869 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:49,900 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:49,930 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:50,071 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:50,099 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:50,240 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:50,270 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:50,273 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:39:50,650 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:39:50,679 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:39:50,708 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:15,848 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:15,848 - __main__ - INFO - Initializing database tables...
+2025-03-30 11:40:15,850 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 11:40:15,880 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:15,911 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:16,052 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:16,057 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:40:16,617 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:40:16,644 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:16,861 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 11:40:16,890 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:16,917 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:16,947 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:17,082 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:17,112 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:17,141 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:17,171 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:17,174 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:40:17,622 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:40:17,665 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:40:17,709 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:07,452 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:07,452 - __main__ - INFO - Initializing database tables...
+2025-03-30 11:44:07,454 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 11:44:07,483 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:07,511 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:07,541 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:07,545 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:44:08,067 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:44:08,097 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:08,319 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 11:44:08,348 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:08,377 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:08,406 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:08,434 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:08,463 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:08,493 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:08,522 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:08,526 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:44:08,942 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:44:08,970 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:08,996 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:44:09,009 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 11:44:09,009 - __main__ - INFO - Starting continuous data collection
+2025-03-30 11:44:09,011 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 11:44:09,011 - __main__ - INFO - Starting news collection thread
+2025-03-30 11:44:09,011 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 11:44:09,012 - __main__ - INFO - Processing news articles
+2025-03-30 11:44:09,012 - __main__ - INFO - Stopping data collection
+2025-03-30 11:44:09,013 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 11:44:09,423 - data_collection.financial_news_collector - INFO - Retrieved 175 news items from Finnhub for AAPL
+2025-03-30 11:44:10,597 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 11:44:11,748 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 11:44:12,914 - data_collection.financial_news_collector - INFO - Retrieved 203 news items from Finnhub for AMZN
+2025-03-30 11:44:14,028 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 11:44:14,090 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 11:44:15,318 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 11:44:16,487 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 11:44:17,694 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 11:44:18,844 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 11:44:19,041 - __main__ - INFO - Pipeline completed
+2025-03-30 11:54:00,220 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:00,220 - __main__ - INFO - Initializing database tables...
+2025-03-30 11:54:00,222 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 11:54:00,364 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:00,394 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:00,424 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:00,430 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:54:01,200 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:54:01,237 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:01,521 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 11:54:01,555 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:01,692 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:01,722 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:01,753 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:01,782 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:01,812 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:01,840 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:01,843 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:54:05,551 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:54:05,580 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:05,712 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:54:05,725 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 11:54:05,726 - __main__ - INFO - Starting continuous data collection
+2025-03-30 11:54:05,726 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 11:54:05,727 - __main__ - INFO - Starting news collection thread
+2025-03-30 11:54:05,727 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 11:54:05,727 - __main__ - INFO - Processing news articles
+2025-03-30 11:54:05,732 - __main__ - INFO - Analyzing data from the last 7 days
+2025-03-30 11:54:05,732 - __main__ - INFO - Analyzing correlations
+2025-03-30 11:54:05,733 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 30min windows
+2025-03-30 11:54:05,735 - analysis.correlation_analyzer - WARNING - Insufficient data for AAPL in the specified time range
+2025-03-30 11:54:05,736 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 11:54:05,736 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 60min windows
+2025-03-30 11:54:05,736 - analysis.correlation_analyzer - WARNING - Insufficient data for AAPL in the specified time range
+2025-03-30 11:54:05,737 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 11:54:05,737 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 240min windows
+2025-03-30 11:54:05,737 - analysis.correlation_analyzer - WARNING - Insufficient data for AAPL in the specified time range
+2025-03-30 11:54:05,738 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 11:54:05,738 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 30min windows
+2025-03-30 11:54:05,738 - analysis.correlation_analyzer - WARNING - Insufficient data for MSFT in the specified time range
+2025-03-30 11:54:05,738 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 11:54:05,739 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 60min windows
+2025-03-30 11:54:05,739 - analysis.correlation_analyzer - WARNING - Insufficient data for MSFT in the specified time range
+2025-03-30 11:54:05,739 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 11:54:05,740 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 240min windows
+2025-03-30 11:54:05,740 - analysis.correlation_analyzer - WARNING - Insufficient data for MSFT in the specified time range
+2025-03-30 11:54:05,740 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 11:54:05,740 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 30min windows
+2025-03-30 11:54:05,741 - analysis.correlation_analyzer - WARNING - Insufficient data for GOOGL in the specified time range
+2025-03-30 11:54:05,741 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 11:54:05,741 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 60min windows
+2025-03-30 11:54:05,742 - analysis.correlation_analyzer - WARNING - Insufficient data for GOOGL in the specified time range
+2025-03-30 11:54:05,742 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 11:54:05,742 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 240min windows
+2025-03-30 11:54:05,742 - analysis.correlation_analyzer - WARNING - Insufficient data for GOOGL in the specified time range
+2025-03-30 11:54:05,743 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 11:54:05,743 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 30min windows
+2025-03-30 11:54:05,743 - analysis.correlation_analyzer - WARNING - Insufficient data for AMZN in the specified time range
+2025-03-30 11:54:05,743 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 11:54:05,743 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 60min windows
+2025-03-30 11:54:05,744 - analysis.correlation_analyzer - WARNING - Insufficient data for AMZN in the specified time range
+2025-03-30 11:54:05,744 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 11:54:05,744 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 240min windows
+2025-03-30 11:54:05,745 - analysis.correlation_analyzer - WARNING - Insufficient data for AMZN in the specified time range
+2025-03-30 11:54:05,745 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 11:54:05,745 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 30min windows
+2025-03-30 11:54:05,745 - analysis.correlation_analyzer - WARNING - Insufficient data for TSLA in the specified time range
+2025-03-30 11:54:05,745 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 11:54:05,745 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 60min windows
+2025-03-30 11:54:05,746 - analysis.correlation_analyzer - WARNING - Insufficient data for TSLA in the specified time range
+2025-03-30 11:54:05,746 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 11:54:05,746 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 240min windows
+2025-03-30 11:54:05,748 - analysis.correlation_analyzer - WARNING - Insufficient data for TSLA in the specified time range
+2025-03-30 11:54:05,748 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 11:54:05,748 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 30min windows
+2025-03-30 11:54:05,749 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 11:54:05,749 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 11:54:05,749 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 60min windows
+2025-03-30 11:54:05,749 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 11:54:05,749 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 11:54:05,750 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 240min windows
+2025-03-30 11:54:05,750 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 11:54:05,751 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 11:54:05,751 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 30min windows
+2025-03-30 11:54:05,751 - analysis.correlation_analyzer - WARNING - Insufficient data for NVDA in the specified time range
+2025-03-30 11:54:05,751 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 11:54:05,751 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 60min windows
+2025-03-30 11:54:05,752 - analysis.correlation_analyzer - WARNING - Insufficient data for NVDA in the specified time range
+2025-03-30 11:54:05,752 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 11:54:05,752 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 240min windows
+2025-03-30 11:54:05,753 - analysis.correlation_analyzer - WARNING - Insufficient data for NVDA in the specified time range
+2025-03-30 11:54:05,753 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 11:54:05,753 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 30min windows
+2025-03-30 11:54:05,754 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 11:54:05,754 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 11:54:05,754 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 60min windows
+2025-03-30 11:54:05,755 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 11:54:05,755 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 11:54:05,755 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 240min windows
+2025-03-30 11:54:05,755 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 11:54:05,756 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 11:54:05,756 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 30min windows
+2025-03-30 11:54:05,756 - analysis.correlation_analyzer - WARNING - Insufficient data for V in the specified time range
+2025-03-30 11:54:05,756 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 11:54:05,756 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 60min windows
+2025-03-30 11:54:05,757 - analysis.correlation_analyzer - WARNING - Insufficient data for V in the specified time range
+2025-03-30 11:54:05,757 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 11:54:05,757 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 240min windows
+2025-03-30 11:54:05,758 - analysis.correlation_analyzer - WARNING - Insufficient data for V in the specified time range
+2025-03-30 11:54:05,758 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 11:54:05,758 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 30min windows
+2025-03-30 11:54:05,759 - analysis.correlation_analyzer - WARNING - Insufficient data for WMT in the specified time range
+2025-03-30 11:54:05,759 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 11:54:05,759 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 60min windows
+2025-03-30 11:54:05,760 - analysis.correlation_analyzer - WARNING - Insufficient data for WMT in the specified time range
+2025-03-30 11:54:05,760 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 11:54:05,760 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 240min windows
+2025-03-30 11:54:05,761 - analysis.correlation_analyzer - WARNING - Insufficient data for WMT in the specified time range
+2025-03-30 11:54:05,761 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 11:54:05,761 - __main__ - INFO - Analyzing time lags
+2025-03-30 11:54:05,761 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AAPL
+2025-03-30 11:54:05,765 - analysis.time_lag_analyzer - WARNING - Insufficient data for AAPL in the specified time range
+2025-03-30 11:54:05,765 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for AAPL
+2025-03-30 11:54:05,765 - analysis.time_lag_analyzer - INFO - Analyzing time lag for MSFT
+2025-03-30 11:54:05,766 - analysis.time_lag_analyzer - WARNING - Insufficient data for MSFT in the specified time range
+2025-03-30 11:54:05,766 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for MSFT
+2025-03-30 11:54:05,766 - analysis.time_lag_analyzer - INFO - Analyzing time lag for GOOGL
+2025-03-30 11:54:05,767 - analysis.time_lag_analyzer - WARNING - Insufficient data for GOOGL in the specified time range
+2025-03-30 11:54:05,767 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for GOOGL
+2025-03-30 11:54:05,767 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AMZN
+2025-03-30 11:54:05,768 - analysis.time_lag_analyzer - WARNING - Insufficient data for AMZN in the specified time range
+2025-03-30 11:54:05,768 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for AMZN
+2025-03-30 11:54:05,768 - analysis.time_lag_analyzer - INFO - Analyzing time lag for TSLA
+2025-03-30 11:54:05,769 - analysis.time_lag_analyzer - WARNING - Insufficient data for TSLA in the specified time range
+2025-03-30 11:54:05,769 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for TSLA
+2025-03-30 11:54:05,769 - analysis.time_lag_analyzer - INFO - Analyzing time lag for META
+2025-03-30 11:54:05,769 - analysis.time_lag_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 11:54:05,770 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for META
+2025-03-30 11:54:05,770 - analysis.time_lag_analyzer - INFO - Analyzing time lag for NVDA
+2025-03-30 11:54:05,770 - analysis.time_lag_analyzer - WARNING - Insufficient data for NVDA in the specified time range
+2025-03-30 11:54:05,770 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for NVDA
+2025-03-30 11:54:05,771 - analysis.time_lag_analyzer - INFO - Analyzing time lag for JPM
+2025-03-30 11:54:05,771 - analysis.time_lag_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 11:54:05,771 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for JPM
+2025-03-30 11:54:05,771 - analysis.time_lag_analyzer - INFO - Analyzing time lag for V
+2025-03-30 11:54:05,772 - analysis.time_lag_analyzer - WARNING - Insufficient data for V in the specified time range
+2025-03-30 11:54:05,772 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for V
+2025-03-30 11:54:05,772 - analysis.time_lag_analyzer - INFO - Analyzing time lag for WMT
+2025-03-30 11:54:05,773 - analysis.time_lag_analyzer - WARNING - Insufficient data for WMT in the specified time range
+2025-03-30 11:54:05,773 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for WMT
+2025-03-30 11:54:05,776 - __main__ - INFO - Building random_forest models using 30 days of data
+2025-03-30 11:54:05,776 - analysis.predictive_model - INFO - Building model for AAPL
+2025-03-30 11:54:05,782 - analysis.predictive_model - WARNING - Insufficient data for AAPL in the specified time range
+2025-03-30 11:54:05,783 - analysis.predictive_model - WARNING - Insufficient data for AAPL to build a model
+2025-03-30 11:54:05,783 - analysis.predictive_model - INFO - Building model for MSFT
+2025-03-30 11:54:05,784 - analysis.predictive_model - WARNING - Insufficient data for MSFT in the specified time range
+2025-03-30 11:54:05,784 - analysis.predictive_model - WARNING - Insufficient data for MSFT to build a model
+2025-03-30 11:54:05,784 - analysis.predictive_model - INFO - Building model for GOOGL
+2025-03-30 11:54:05,785 - analysis.predictive_model - WARNING - Insufficient data for GOOGL in the specified time range
+2025-03-30 11:54:05,785 - analysis.predictive_model - WARNING - Insufficient data for GOOGL to build a model
+2025-03-30 11:54:05,785 - analysis.predictive_model - INFO - Building model for AMZN
+2025-03-30 11:54:05,786 - analysis.predictive_model - WARNING - Insufficient data for AMZN in the specified time range
+2025-03-30 11:54:05,786 - analysis.predictive_model - WARNING - Insufficient data for AMZN to build a model
+2025-03-30 11:54:05,786 - analysis.predictive_model - INFO - Building model for TSLA
+2025-03-30 11:54:05,787 - analysis.predictive_model - WARNING - Insufficient data for TSLA in the specified time range
+2025-03-30 11:54:05,787 - analysis.predictive_model - WARNING - Insufficient data for TSLA to build a model
+2025-03-30 11:54:05,787 - analysis.predictive_model - INFO - Building model for META
+2025-03-30 11:54:05,789 - analysis.predictive_model - WARNING - Insufficient data for META in the specified time range
+2025-03-30 11:54:05,789 - analysis.predictive_model - WARNING - Insufficient data for META to build a model
+2025-03-30 11:54:05,789 - analysis.predictive_model - INFO - Building model for NVDA
+2025-03-30 11:54:05,790 - analysis.predictive_model - WARNING - Insufficient data for NVDA in the specified time range
+2025-03-30 11:54:05,790 - analysis.predictive_model - WARNING - Insufficient data for NVDA to build a model
+2025-03-30 11:54:05,790 - analysis.predictive_model - INFO - Building model for JPM
+2025-03-30 11:54:05,791 - analysis.predictive_model - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 11:54:05,791 - analysis.predictive_model - WARNING - Insufficient data for JPM to build a model
+2025-03-30 11:54:05,791 - analysis.predictive_model - INFO - Building model for V
+2025-03-30 11:54:05,793 - analysis.predictive_model - WARNING - Insufficient data for V in the specified time range
+2025-03-30 11:54:05,793 - analysis.predictive_model - WARNING - Insufficient data for V to build a model
+2025-03-30 11:54:05,793 - analysis.predictive_model - INFO - Building model for WMT
+2025-03-30 11:54:05,794 - analysis.predictive_model - WARNING - Insufficient data for WMT in the specified time range
+2025-03-30 11:54:05,794 - analysis.predictive_model - WARNING - Insufficient data for WMT to build a model
+2025-03-30 11:54:05,795 - __main__ - INFO - Generating reports for the last 7 days
+2025-03-30 11:54:05,796 - analysis.correlation_analyzer - WARNING - Insufficient data for AAPL in the specified time range
+2025-03-30 11:54:05,796 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 11:54:05,796 - analysis.correlation_analyzer - WARNING - Insufficient data for MSFT in the specified time range
+2025-03-30 11:54:05,796 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 11:54:05,797 - analysis.correlation_analyzer - WARNING - Insufficient data for GOOGL in the specified time range
+2025-03-30 11:54:05,797 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 11:54:05,798 - analysis.correlation_analyzer - WARNING - Insufficient data for AMZN in the specified time range
+2025-03-30 11:54:05,798 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 11:54:05,798 - analysis.correlation_analyzer - WARNING - Insufficient data for TSLA in the specified time range
+2025-03-30 11:54:05,799 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 11:54:05,799 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 11:54:05,799 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 11:54:05,800 - analysis.correlation_analyzer - WARNING - Insufficient data for NVDA in the specified time range
+2025-03-30 11:54:05,800 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 11:54:05,801 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 11:54:05,801 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 11:54:05,802 - analysis.correlation_analyzer - WARNING - Insufficient data for V in the specified time range
+2025-03-30 11:54:05,802 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 11:54:05,802 - analysis.correlation_analyzer - WARNING - Insufficient data for WMT in the specified time range
+2025-03-30 11:54:05,802 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 11:54:05,803 - __main__ - INFO - Saved correlation report to reports\analysis\correlation_report_20250330.md
+2025-03-30 11:54:05,803 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AAPL
+2025-03-30 11:54:05,804 - analysis.time_lag_analyzer - WARNING - Insufficient data for AAPL in the specified time range
+2025-03-30 11:54:05,804 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for AAPL
+2025-03-30 11:54:05,804 - analysis.time_lag_analyzer - INFO - Analyzing time lag for MSFT
+2025-03-30 11:54:05,805 - analysis.time_lag_analyzer - WARNING - Insufficient data for MSFT in the specified time range
+2025-03-30 11:54:05,805 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for MSFT
+2025-03-30 11:54:05,805 - analysis.time_lag_analyzer - INFO - Analyzing time lag for GOOGL
+2025-03-30 11:54:05,805 - analysis.time_lag_analyzer - WARNING - Insufficient data for GOOGL in the specified time range
+2025-03-30 11:54:05,806 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for GOOGL
+2025-03-30 11:54:05,806 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AMZN
+2025-03-30 11:54:05,806 - analysis.time_lag_analyzer - WARNING - Insufficient data for AMZN in the specified time range
+2025-03-30 11:54:05,806 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for AMZN
+2025-03-30 11:54:05,806 - analysis.time_lag_analyzer - INFO - Analyzing time lag for TSLA
+2025-03-30 11:54:05,807 - analysis.time_lag_analyzer - WARNING - Insufficient data for TSLA in the specified time range
+2025-03-30 11:54:05,807 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for TSLA
+2025-03-30 11:54:05,807 - analysis.time_lag_analyzer - INFO - Analyzing time lag for META
+2025-03-30 11:54:05,808 - analysis.time_lag_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 11:54:05,808 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for META
+2025-03-30 11:54:05,809 - analysis.time_lag_analyzer - INFO - Analyzing time lag for NVDA
+2025-03-30 11:54:05,809 - analysis.time_lag_analyzer - WARNING - Insufficient data for NVDA in the specified time range
+2025-03-30 11:54:05,809 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for NVDA
+2025-03-30 11:54:05,809 - analysis.time_lag_analyzer - INFO - Analyzing time lag for JPM
+2025-03-30 11:54:05,810 - analysis.time_lag_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 11:54:05,810 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for JPM
+2025-03-30 11:54:05,810 - analysis.time_lag_analyzer - INFO - Analyzing time lag for V
+2025-03-30 11:54:05,811 - analysis.time_lag_analyzer - WARNING - Insufficient data for V in the specified time range
+2025-03-30 11:54:05,811 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for V
+2025-03-30 11:54:05,811 - analysis.time_lag_analyzer - INFO - Analyzing time lag for WMT
+2025-03-30 11:54:05,812 - analysis.time_lag_analyzer - WARNING - Insufficient data for WMT in the specified time range
+2025-03-30 11:54:05,812 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for WMT
+2025-03-30 11:54:05,812 - __main__ - INFO - Saved time lag report to reports\analysis\time_lag_report_20250330.md
+2025-03-30 11:54:05,813 - analysis.correlation_analyzer - WARNING - Insufficient data for AAPL in the specified time range
+2025-03-30 11:54:05,813 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 11:54:05,813 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting AAPL
+2025-03-30 11:54:05,814 - analysis.time_lag_analyzer - WARNING - Insufficient data for AAPL in the specified time range
+2025-03-30 11:54:05,814 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for AAPL
+2025-03-30 11:54:05,814 - analysis.time_lag_analyzer - WARNING - No lag correlations available for AAPL
+2025-03-30 11:54:05,815 - analysis.correlation_analyzer - WARNING - Insufficient data for MSFT in the specified time range
+2025-03-30 11:54:05,815 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 11:54:05,815 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting MSFT
+2025-03-30 11:54:05,817 - analysis.time_lag_analyzer - WARNING - Insufficient data for MSFT in the specified time range
+2025-03-30 11:54:05,817 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for MSFT
+2025-03-30 11:54:05,817 - analysis.time_lag_analyzer - WARNING - No lag correlations available for MSFT
+2025-03-30 11:54:05,817 - analysis.correlation_analyzer - WARNING - Insufficient data for GOOGL in the specified time range
+2025-03-30 11:54:05,817 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 11:54:05,817 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting GOOGL
+2025-03-30 11:54:05,818 - analysis.time_lag_analyzer - WARNING - Insufficient data for GOOGL in the specified time range
+2025-03-30 11:54:05,818 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for GOOGL
+2025-03-30 11:54:05,818 - analysis.time_lag_analyzer - WARNING - No lag correlations available for GOOGL
+2025-03-30 11:54:05,819 - analysis.correlation_analyzer - WARNING - Insufficient data for AMZN in the specified time range
+2025-03-30 11:54:05,819 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 11:54:05,819 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting AMZN
+2025-03-30 11:54:05,819 - analysis.time_lag_analyzer - WARNING - Insufficient data for AMZN in the specified time range
+2025-03-30 11:54:05,820 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for AMZN
+2025-03-30 11:54:05,820 - analysis.time_lag_analyzer - WARNING - No lag correlations available for AMZN
+2025-03-30 11:54:05,820 - analysis.correlation_analyzer - WARNING - Insufficient data for TSLA in the specified time range
+2025-03-30 11:54:05,820 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 11:54:05,820 - analysis.correlation_analyzer - WARNING - No aligned data available for plotting TSLA
+2025-03-30 11:54:05,821 - analysis.time_lag_analyzer - WARNING - Insufficient data for TSLA in the specified time range
+2025-03-30 11:54:05,822 - analysis.time_lag_analyzer - WARNING - Could not prepare time series for TSLA
+2025-03-30 11:54:05,822 - analysis.time_lag_analyzer - WARNING - No lag correlations available for TSLA
+2025-03-30 11:54:05,822 - __main__ - INFO - Starting dashboard on port 8050
+2025-03-30 11:54:05,822 - __main__ - INFO - Stopping data collection
+2025-03-30 11:54:05,822 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 11:54:05,980 - data_collection.financial_news_collector - INFO - Retrieved 175 news items from Finnhub for AAPL
+2025-03-30 11:54:07,126 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 11:54:08,284 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 11:54:09,424 - data_collection.financial_news_collector - INFO - Retrieved 203 news items from Finnhub for AMZN
+2025-03-30 11:54:10,566 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 11:54:10,827 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 11:54:11,786 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 11:54:12,937 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 11:54:14,106 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 11:54:14,521 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 11:54:14,522 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 11:54:15,220 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 11:54:15,840 - __main__ - INFO - Pipeline completed
+2025-03-30 11:59:13,005 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:13,006 - __main__ - INFO - Initializing database tables...
+2025-03-30 11:59:13,007 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 11:59:13,036 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:13,170 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:13,199 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:13,204 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:59:13,739 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:59:13,769 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:13,996 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 11:59:14,128 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:14,159 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:14,300 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:14,440 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:14,469 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:14,496 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:14,624 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:14,627 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 11:59:15,371 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 11:59:15,402 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:15,535 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 11:59:15,548 - __main__ - INFO - Starting continuous data collection
+2025-03-30 11:59:15,548 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 11:59:15,549 - __main__ - INFO - Starting news collection thread
+2025-03-30 11:59:15,698 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 11:59:15,698 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 11:59:15,707 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 11:59:16,898 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 11:59:17,141 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 11:59:17,141 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 11:59:18,102 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 11:59:18,380 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 11:59:18,381 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 11:59:19,256 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 11:59:19,550 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 11:59:19,551 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 11:59:20,443 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 11:59:20,840 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 11:59:20,841 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 11:59:21,576 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 11:59:22,012 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 11:59:22,013 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 11:59:22,836 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 11:59:23,202 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 11:59:23,203 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 11:59:23,969 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 11:59:24,530 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 11:59:24,530 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 11:59:25,097 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 11:59:25,737 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 11:59:25,739 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 11:59:26,213 - data_collection.financial_news_collector - INFO - Retrieved 69 news items from Finnhub for WMT
+2025-03-30 11:59:26,958 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 11:59:26,959 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 11:59:27,471 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from NewsAPI for Apple Inc.
+2025-03-30 11:59:28,171 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 11:59:28,175 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 11:59:28,942 - data_collection.financial_news_collector - INFO - Retrieved 26 news items from NewsAPI for Microsoft Corporation
+2025-03-30 11:59:30,429 - data_collection.financial_news_collector - INFO - Retrieved 50 news items from NewsAPI for Alphabet Inc.
+2025-03-30 11:59:31,820 - data_collection.financial_news_collector - INFO - Retrieved 24 news items from NewsAPI for Amazon.com, Inc.
+2025-03-30 11:59:33,003 - data_collection.financial_news_collector - INFO - Retrieved 21 news items from NewsAPI for Tesla, Inc.
+2025-03-30 11:59:34,128 - data_collection.financial_news_collector - INFO - Retrieved 7 news items from NewsAPI for Meta Platforms, Inc.
+2025-03-30 11:59:35,600 - data_collection.financial_news_collector - INFO - Retrieved 28 news items from NewsAPI for NVIDIA Corporation
+2025-03-30 11:59:36,782 - data_collection.financial_news_collector - INFO - Retrieved 47 news items from NewsAPI for JPMorgan Chase & Co.
+2025-03-30 11:59:37,919 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Visa Inc.
+2025-03-30 11:59:39,222 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Walmart Inc.
+2025-03-30 11:59:40,224 - data_collection.financial_news_collector - INFO - Storing 1422 news articles in the database
+2025-03-30 11:59:40,276 - data_collection.financial_news_collector - INFO - Waiting 300 seconds until next news collection
+2025-03-30 12:00:28,423 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:00:28,424 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:00:29,607 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:00:29,608 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:00:30,767 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:00:30,767 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:00:31,917 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:00:31,917 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:00:33,052 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:00:33,053 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:00:34,201 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:00:34,202 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:00:35,332 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:00:35,332 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:00:36,637 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:00:36,637 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:00:37,817 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:00:37,817 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:00:39,015 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:00:39,015 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:00:40,266 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:00:40,267 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:01:40,370 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:01:40,371 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:01:41,693 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:01:41,693 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:01:42,866 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:01:42,867 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:01:44,145 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:01:44,146 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:01:45,297 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:01:45,298 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:01:46,454 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:01:46,455 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:01:47,601 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:01:47,601 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:01:48,880 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:01:48,880 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:01:50,180 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:01:50,180 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:01:51,331 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:01:51,331 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:01:52,430 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:01:52,431 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:02:52,536 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:02:52,536 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:02:53,707 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:02:53,708 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:02:54,879 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:02:54,879 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:02:56,030 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:02:56,030 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:02:57,299 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:02:57,300 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:02:58,434 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:02:58,435 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:02:59,595 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:02:59,597 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:03:00,872 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:03:00,873 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:03:02,064 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:03:02,064 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:03:03,224 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:03:03,224 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:03:04,340 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:03:04,341 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:04:04,581 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:04:04,581 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:04:05,893 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:04:05,893 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:04:07,063 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:04:07,063 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:04:08,202 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:04:08,202 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:04:09,339 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:04:09,339 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:04:10,472 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:04:10,473 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:04:11,752 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:04:11,752 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:04:12,910 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:04:12,910 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:04:14,200 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:04:14,200 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:04:15,404 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:04:15,404 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:04:16,513 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:04:16,514 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:04:40,484 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:04:41,629 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:04:42,758 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:04:43,989 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:04:45,165 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:04:46,394 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:04:47,542 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:04:48,708 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:04:49,831 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:04:50,957 - data_collection.financial_news_collector - INFO - Retrieved 69 news items from Finnhub for WMT
+2025-03-30 12:04:52,491 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from NewsAPI for Apple Inc.
+2025-03-30 12:04:53,882 - data_collection.financial_news_collector - INFO - Retrieved 26 news items from NewsAPI for Microsoft Corporation
+2025-03-30 12:04:55,384 - data_collection.financial_news_collector - INFO - Retrieved 50 news items from NewsAPI for Alphabet Inc.
+2025-03-30 12:04:56,875 - data_collection.financial_news_collector - INFO - Retrieved 24 news items from NewsAPI for Amazon.com, Inc.
+2025-03-30 12:04:58,277 - data_collection.financial_news_collector - INFO - Retrieved 21 news items from NewsAPI for Tesla, Inc.
+2025-03-30 12:04:59,388 - data_collection.financial_news_collector - INFO - Retrieved 7 news items from NewsAPI for Meta Platforms, Inc.
+2025-03-30 12:05:00,552 - data_collection.financial_news_collector - INFO - Retrieved 28 news items from NewsAPI for NVIDIA Corporation
+2025-03-30 12:05:01,804 - data_collection.financial_news_collector - INFO - Retrieved 47 news items from NewsAPI for JPMorgan Chase & Co.
+2025-03-30 12:05:02,921 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Visa Inc.
+2025-03-30 12:05:04,234 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Walmart Inc.
+2025-03-30 12:05:05,236 - data_collection.financial_news_collector - INFO - Waiting 300 seconds until next news collection
+2025-03-30 12:05:16,747 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:05:16,747 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:05:17,954 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:05:17,955 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:05:19,118 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:05:19,119 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:05:20,275 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:05:20,275 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:05:21,417 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:05:21,417 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:05:22,549 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:05:22,549 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:05:23,826 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:05:23,826 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:05:25,103 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:05:25,103 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:05:26,419 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:05:26,421 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:05:27,582 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:05:27,583 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:05:28,667 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:05:28,668 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:06:28,764 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:06:28,765 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:06:29,983 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:06:29,983 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:06:31,280 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:06:31,280 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:06:32,433 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:06:32,433 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:06:33,574 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:06:33,575 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:06:34,702 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:06:34,702 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:06:35,994 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:06:35,994 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:06:37,140 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:06:37,141 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:06:38,323 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:06:38,323 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:06:39,485 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:06:39,486 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:06:40,589 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:06:40,591 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:07:40,696 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:07:40,696 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:07:41,867 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:07:41,867 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:07:43,021 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:07:43,021 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:07:44,201 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:07:44,202 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:07:45,353 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:07:45,353 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:07:46,630 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:07:46,631 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:07:47,776 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:07:47,776 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:07:48,995 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:07:48,996 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:07:50,204 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:07:50,204 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:07:51,359 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:07:51,359 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:07:52,439 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:07:52,442 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:08:52,676 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:08:52,677 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:08:53,971 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:08:53,973 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:08:55,134 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:08:55,134 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:08:56,279 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:08:56,279 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:08:57,437 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:08:57,437 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:08:58,591 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:08:58,591 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:08:59,744 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:08:59,744 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:09:00,895 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:09:00,895 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:09:02,084 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:09:02,085 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:09:03,247 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:09:03,248 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:09:04,341 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:09:04,342 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:10:04,520 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:10:04,520 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:10:05,489 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:10:05,818 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:10:05,818 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:10:06,627 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:10:06,977 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:10:06,977 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:10:07,776 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:10:08,249 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:10:08,250 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:10:09,059 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:10:09,387 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:10:09,389 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:10:10,286 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:10:10,667 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:10:10,667 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:10:11,423 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:10:11,810 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:10:11,811 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:10:12,635 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:10:13,024 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:10:13,025 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:10:13,815 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:10:14,222 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:10:14,222 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:10:14,933 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:10:15,379 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:10:15,379 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:10:16,075 - data_collection.financial_news_collector - INFO - Retrieved 69 news items from Finnhub for WMT
+2025-03-30 12:10:16,469 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:10:16,470 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:10:17,632 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from NewsAPI for Apple Inc.
+2025-03-30 12:10:18,777 - data_collection.financial_news_collector - INFO - Retrieved 26 news items from NewsAPI for Microsoft Corporation
+2025-03-30 12:10:20,345 - data_collection.financial_news_collector - INFO - Retrieved 50 news items from NewsAPI for Alphabet Inc.
+2025-03-30 12:10:21,801 - data_collection.financial_news_collector - INFO - Retrieved 24 news items from NewsAPI for Amazon.com, Inc.
+2025-03-30 12:10:22,947 - data_collection.financial_news_collector - INFO - Retrieved 21 news items from NewsAPI for Tesla, Inc.
+2025-03-30 12:10:24,068 - data_collection.financial_news_collector - INFO - Retrieved 7 news items from NewsAPI for Meta Platforms, Inc.
+2025-03-30 12:10:25,277 - data_collection.financial_news_collector - INFO - Retrieved 28 news items from NewsAPI for NVIDIA Corporation
+2025-03-30 12:10:26,835 - data_collection.financial_news_collector - INFO - Retrieved 47 news items from NewsAPI for JPMorgan Chase & Co.
+2025-03-30 12:10:28,150 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Visa Inc.
+2025-03-30 12:10:29,293 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Walmart Inc.
+2025-03-30 12:10:30,294 - data_collection.financial_news_collector - INFO - Waiting 300 seconds until next news collection
+2025-03-30 12:11:16,575 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:11:16,576 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:11:17,903 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:11:17,903 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:11:19,085 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:11:19,085 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:11:20,369 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:11:20,370 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:11:21,644 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:11:21,645 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:11:22,781 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:11:22,781 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:11:23,934 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:11:23,935 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:11:25,094 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:11:25,094 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:11:26,275 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:11:26,276 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:11:27,456 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:11:27,456 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:11:28,551 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:11:28,552 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:12:28,788 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:12:28,788 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:12:29,966 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:12:29,967 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:12:31,124 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:12:31,124 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:12:32,263 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:12:32,264 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:12:33,400 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:12:33,401 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:12:34,535 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:12:34,535 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:12:35,680 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:12:35,681 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:12:36,853 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:12:36,854 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:12:38,162 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:12:38,163 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:12:39,328 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:12:39,328 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:12:40,431 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:12:40,432 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:13:40,533 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:13:40,533 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:13:41,707 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:13:41,707 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:13:42,866 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:13:42,866 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:13:44,134 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:13:44,134 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:13:45,271 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:13:45,272 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:13:46,532 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:13:46,532 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:13:47,675 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:13:47,675 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:13:48,820 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:13:48,821 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:13:50,004 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:13:50,004 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:13:51,343 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:13:51,344 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:13:52,483 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:13:52,485 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:14:52,584 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:14:52,586 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:14:53,751 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:14:53,751 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:14:54,928 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:14:54,930 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:14:56,067 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:14:56,067 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:14:57,224 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:14:57,224 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:14:58,352 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:14:58,352 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:14:59,552 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:14:59,552 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:15:00,908 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:15:00,910 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:15:02,267 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:15:02,267 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:15:04,253 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:15:04,254 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:15:05,370 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:15:05,372 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:15:30,745 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:15:32,020 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:15:33,212 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:15:34,363 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:15:35,523 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:15:36,701 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:15:37,822 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:15:38,954 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:15:40,073 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:15:41,205 - data_collection.financial_news_collector - INFO - Retrieved 69 news items from Finnhub for WMT
+2025-03-30 12:15:42,456 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from NewsAPI for Apple Inc.
+2025-03-30 12:15:43,667 - data_collection.financial_news_collector - INFO - Retrieved 26 news items from NewsAPI for Microsoft Corporation
+2025-03-30 12:15:44,858 - data_collection.financial_news_collector - INFO - Retrieved 50 news items from NewsAPI for Alphabet Inc.
+2025-03-30 12:15:46,294 - data_collection.financial_news_collector - INFO - Retrieved 24 news items from NewsAPI for Amazon.com, Inc.
+2025-03-30 12:15:47,799 - data_collection.financial_news_collector - INFO - Retrieved 21 news items from NewsAPI for Tesla, Inc.
+2025-03-30 12:15:49,126 - data_collection.financial_news_collector - INFO - Retrieved 7 news items from NewsAPI for Meta Platforms, Inc.
+2025-03-30 12:15:50,593 - data_collection.financial_news_collector - INFO - Retrieved 28 news items from NewsAPI for NVIDIA Corporation
+2025-03-30 12:15:51,770 - data_collection.financial_news_collector - INFO - Retrieved 47 news items from NewsAPI for JPMorgan Chase & Co.
+2025-03-30 12:15:52,955 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Visa Inc.
+2025-03-30 12:15:54,264 - data_collection.financial_news_collector - INFO - Retrieved 4 news items from NewsAPI for Walmart Inc.
+2025-03-30 12:15:55,265 - data_collection.financial_news_collector - INFO - Waiting 300 seconds until next news collection
+2025-03-30 12:16:05,578 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:16:05,578 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:16:06,772 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:16:06,773 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:16:07,932 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:16:07,932 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:16:09,068 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:16:09,068 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:16:10,204 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:16:10,204 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:16:11,343 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:16:11,343 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:16:12,498 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:16:12,499 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:16:13,666 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:16:13,667 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:16:14,852 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:16:14,853 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:16:16,045 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:16:16,045 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:16:17,176 - data_collection.stock_price_predictor - INFO - Storing 10 price records in the database
+2025-03-30 12:16:17,176 - data_collection.stock_price_predictor - INFO - Waiting 60 seconds until next price collection
+2025-03-30 12:17:03,760 - __main__ - INFO - Stopping data collection
+2025-03-30 12:17:03,761 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 12:17:08,772 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 12:17:22,337 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:22,338 - __main__ - INFO - Initializing database tables...
+2025-03-30 12:17:22,339 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:17:22,367 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:22,398 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:22,426 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:22,431 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:17:23,275 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:17:23,305 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:23,518 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 12:17:23,549 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:23,576 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:23,606 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:23,635 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:23,663 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:23,798 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:23,825 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:23,828 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:17:24,213 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:17:24,240 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:24,270 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:17:24,283 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 12:17:24,283 - __main__ - INFO - Starting continuous data collection
+2025-03-30 12:17:24,284 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 12:17:24,284 - __main__ - INFO - Starting news collection thread
+2025-03-30 12:17:24,284 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 12:17:24,285 - __main__ - INFO - Processing news articles
+2025-03-30 12:17:24,288 - __main__ - INFO - Stopping data collection
+2025-03-30 12:17:24,288 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 12:17:24,385 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:17:24,386 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:17:24,426 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:17:25,629 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:17:25,693 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:17:25,693 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:17:26,774 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:17:26,842 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:17:26,842 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:17:27,901 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:17:27,977 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:17:27,978 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:17:29,104 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:17:29,105 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:17:29,115 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:17:29,297 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 12:17:30,233 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:17:30,233 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:17:30,269 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:17:31,407 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:17:31,407 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:17:31,407 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:17:32,566 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:17:32,702 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:17:32,703 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:17:33,716 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:17:33,898 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:17:33,898 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:17:34,312 - __main__ - INFO - Pipeline completed
+2025-03-30 12:18:51,452 - data_processing.text_preprocessor - INFO - NLTK resources successfully verified/downloaded
+2025-03-30 12:18:52,875 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:52,875 - __main__ - INFO - Initializing database tables...
+2025-03-30 12:18:52,877 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:18:52,904 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:52,933 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:52,961 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:52,966 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:18:53,589 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:18:53,620 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:53,853 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 12:18:53,882 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:53,910 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:53,939 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:53,969 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:54,000 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:54,031 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:54,059 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:54,063 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:18:54,511 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:18:54,539 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:54,567 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:18:54,580 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 12:18:54,580 - __main__ - INFO - Starting continuous data collection
+2025-03-30 12:18:54,580 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 12:18:54,580 - __main__ - INFO - Starting news collection thread
+2025-03-30 12:18:54,580 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 12:18:54,582 - __main__ - INFO - Processing news articles
+2025-03-30 12:18:54,659 - __main__ - INFO - Stopping data collection
+2025-03-30 12:18:54,659 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 12:18:54,683 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:18:54,683 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:18:54,709 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:18:55,841 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:18:56,002 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:18:56,002 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:18:57,031 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:18:57,164 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:18:57,166 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:18:58,252 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:18:58,307 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:18:58,308 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:18:59,380 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:18:59,438 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:18:59,439 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:18:59,659 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 12:19:00,565 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:19:00,582 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:19:00,582 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:19:01,701 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:19:01,867 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:19:01,867 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:19:02,885 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:19:03,015 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:19:03,016 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:19:04,009 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:19:04,199 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:19:04,200 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:19:04,671 - __main__ - INFO - Pipeline completed
+2025-03-30 12:19:44,116 - data_processing.text_preprocessor - INFO - NLTK resources successfully verified/downloaded
+2025-03-30 12:19:45,469 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:45,470 - __main__ - INFO - Initializing database tables...
+2025-03-30 12:19:45,471 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:19:45,501 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:45,531 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:45,560 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:45,565 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:19:46,073 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:19:46,106 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,338 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 12:19:46,368 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,396 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,423 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,449 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,480 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,508 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,538 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,541 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:19:46,926 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:19:46,954 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,983 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:19:46,995 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 12:19:46,995 - __main__ - INFO - Starting continuous data collection
+2025-03-30 12:19:46,996 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 12:19:46,996 - __main__ - INFO - Starting news collection thread
+2025-03-30 12:19:46,997 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 12:19:46,998 - __main__ - INFO - Processing news articles
+2025-03-30 12:19:47,108 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:19:47,109 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:19:47,200 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:19:48,054 - __main__ - INFO - Stopping data collection
+2025-03-30 12:19:48,054 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 12:19:48,414 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:19:48,534 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:19:48,535 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:19:49,551 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:19:49,701 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:19:49,701 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:19:50,683 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:19:50,858 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:19:50,859 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:19:51,843 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:19:52,051 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:19:52,052 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:19:52,988 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:19:53,061 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 12:19:53,320 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:19:53,320 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:19:54,219 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:19:54,457 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:19:54,458 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:19:55,416 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:19:55,754 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:19:55,754 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:19:56,539 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:19:56,952 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:19:56,952 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:19:57,656 - data_collection.financial_news_collector - INFO - Retrieved 69 news items from Finnhub for WMT
+2025-03-30 12:19:58,070 - __main__ - INFO - Pipeline completed
+2025-03-30 12:20:28,041 - data_processing.text_preprocessor - INFO - NLTK resources successfully verified/downloaded
+2025-03-30 12:20:29,506 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:29,506 - __main__ - INFO - Initializing database tables...
+2025-03-30 12:20:29,509 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:20:29,551 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:29,585 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:29,728 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:29,734 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:20:30,372 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:20:30,405 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:30,635 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 12:20:30,664 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:30,693 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:30,725 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:30,857 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:30,886 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:30,918 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:30,948 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:30,951 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:20:31,345 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:20:31,373 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:31,401 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:20:31,414 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 12:20:31,415 - __main__ - INFO - Starting continuous data collection
+2025-03-30 12:20:31,415 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 12:20:31,416 - __main__ - INFO - Starting news collection thread
+2025-03-30 12:20:31,416 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 12:20:31,416 - __main__ - INFO - Processing news articles
+2025-03-30 12:20:31,618 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:20:31,654 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:20:31,655 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:20:32,423 - database.db_connector - ERROR - Error inserting entities: 'reference_id'
+2025-03-30 12:20:32,423 - __main__ - INFO - Analyzing data from the last 7 days
+2025-03-30 12:20:32,423 - __main__ - INFO - Analyzing correlations
+2025-03-30 12:20:32,423 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 30min windows
+2025-03-30 12:20:32,439 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:20:32,439 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 60min windows
+2025-03-30 12:20:32,445 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:20:32,445 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 240min windows
+2025-03-30 12:20:32,451 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:20:32,451 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 30min windows
+2025-03-30 12:20:32,456 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:20:32,456 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 60min windows
+2025-03-30 12:20:32,461 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:20:32,461 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 240min windows
+2025-03-30 12:20:32,466 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:20:32,466 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 30min windows
+2025-03-30 12:20:32,471 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:20:32,471 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 60min windows
+2025-03-30 12:20:32,478 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:20:32,478 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 240min windows
+2025-03-30 12:20:32,485 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:20:32,485 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 30min windows
+2025-03-30 12:20:32,492 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:20:32,492 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 60min windows
+2025-03-30 12:20:32,498 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:20:32,498 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 240min windows
+2025-03-30 12:20:32,503 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:20:32,503 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 30min windows
+2025-03-30 12:20:32,509 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:20:32,509 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 60min windows
+2025-03-30 12:20:32,513 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:20:32,513 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 240min windows
+2025-03-30 12:20:32,519 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:20:32,520 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 30min windows
+2025-03-30 12:20:32,521 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:20:32,521 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:20:32,521 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 60min windows
+2025-03-30 12:20:32,522 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:20:32,522 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:20:32,522 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 240min windows
+2025-03-30 12:20:32,523 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:20:32,523 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:20:32,523 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 30min windows
+2025-03-30 12:20:32,528 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:20:32,528 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 60min windows
+2025-03-30 12:20:32,534 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:20:32,534 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 240min windows
+2025-03-30 12:20:32,539 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:20:32,540 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 30min windows
+2025-03-30 12:20:32,540 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:20:32,542 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:20:32,542 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 60min windows
+2025-03-30 12:20:32,543 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:20:32,543 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:20:32,543 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 240min windows
+2025-03-30 12:20:32,544 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:20:32,544 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:20:32,544 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 30min windows
+2025-03-30 12:20:32,549 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:20:32,549 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 60min windows
+2025-03-30 12:20:32,554 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:20:32,554 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 240min windows
+2025-03-30 12:20:32,559 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:20:32,559 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 30min windows
+2025-03-30 12:20:32,563 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:20:32,564 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 60min windows
+2025-03-30 12:20:32,569 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:20:32,569 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 240min windows
+2025-03-30 12:20:32,574 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:20:32,574 - __main__ - INFO - Analyzing time lags
+2025-03-30 12:20:32,574 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AAPL
+2025-03-30 12:20:32,587 - __main__ - INFO - Stopping data collection
+2025-03-30 12:20:32,587 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 12:20:32,970 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:20:33,093 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:20:33,095 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:20:34,240 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:20:34,409 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:20:34,409 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:20:35,645 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:20:35,645 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:20:35,646 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:20:36,868 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:20:36,869 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:20:37,034 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:20:37,591 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 12:20:38,131 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:20:38,131 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:20:38,257 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:20:39,278 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:20:39,278 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:20:39,555 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:20:40,437 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:20:40,437 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:20:40,745 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:20:41,630 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:20:41,630 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:20:41,876 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:20:42,594 - __main__ - INFO - Pipeline completed
+2025-03-30 12:23:43,852 - data_processing.text_preprocessor - INFO - NLTK resources successfully verified/downloaded
+2025-03-30 12:23:45,293 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:45,293 - __main__ - INFO - Initializing database tables...
+2025-03-30 12:23:45,295 - database.db_connector - INFO - Database tables initialized successfully
+2025-03-30 12:23:45,325 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:45,357 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:45,389 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:45,396 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:23:46,118 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:23:46,148 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:46,382 - data_processing.entity_extraction - INFO - spaCy NER model initialized
+2025-03-30 12:23:46,411 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:46,441 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:46,471 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:46,499 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:46,528 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:46,559 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:46,589 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:46,592 - data_processing.sentiment_analyzer - INFO - VADER sentiment analyzer initialized
+2025-03-30 12:23:47,008 - data_processing.sentiment_analyzer - INFO - FinBERT model initialized
+2025-03-30 12:23:47,044 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:47,075 - database.db_connector - INFO - Database connection pool initialized successfully
+2025-03-30 12:23:47,090 - __main__ - INFO - Starting the complete analysis pipeline
+2025-03-30 12:23:47,090 - __main__ - INFO - Starting continuous data collection
+2025-03-30 12:23:47,090 - __main__ - INFO - Starting stock_prices collection thread
+2025-03-30 12:23:47,091 - __main__ - INFO - Starting news collection thread
+2025-03-30 12:23:47,091 - __main__ - INFO - Processing data from the last 1 days
+2025-03-30 12:23:47,092 - __main__ - INFO - Processing news articles
+2025-03-30 12:23:47,223 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AAPL
+2025-03-30 12:23:47,224 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AAPL
+2025-03-30 12:23:47,277 - data_collection.financial_news_collector - INFO - Retrieved 176 news items from Finnhub for AAPL
+2025-03-30 12:23:48,136 - database.db_connector - ERROR - Error inserting entities: 'entity_type'
+2025-03-30 12:23:48,137 - __main__ - INFO - Analyzing data from the last 7 days
+2025-03-30 12:23:48,137 - __main__ - INFO - Analyzing correlations
+2025-03-30 12:23:48,137 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 30min windows
+2025-03-30 12:23:48,147 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:23:48,147 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 60min windows
+2025-03-30 12:23:48,152 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:23:48,152 - analysis.correlation_analyzer - INFO - Analyzing correlation for AAPL with 240min windows
+2025-03-30 12:23:48,158 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AAPL
+2025-03-30 12:23:48,158 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 30min windows
+2025-03-30 12:23:48,164 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:23:48,164 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 60min windows
+2025-03-30 12:23:48,170 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:23:48,170 - analysis.correlation_analyzer - INFO - Analyzing correlation for MSFT with 240min windows
+2025-03-30 12:23:48,175 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for MSFT
+2025-03-30 12:23:48,175 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 30min windows
+2025-03-30 12:23:48,180 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:23:48,180 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 60min windows
+2025-03-30 12:23:48,186 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:23:48,186 - analysis.correlation_analyzer - INFO - Analyzing correlation for GOOGL with 240min windows
+2025-03-30 12:23:48,190 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for GOOGL
+2025-03-30 12:23:48,190 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 30min windows
+2025-03-30 12:23:48,196 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:23:48,196 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 60min windows
+2025-03-30 12:23:48,201 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:23:48,201 - analysis.correlation_analyzer - INFO - Analyzing correlation for AMZN with 240min windows
+2025-03-30 12:23:48,205 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for AMZN
+2025-03-30 12:23:48,206 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 30min windows
+2025-03-30 12:23:48,212 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:23:48,212 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 60min windows
+2025-03-30 12:23:48,218 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:23:48,218 - analysis.correlation_analyzer - INFO - Analyzing correlation for TSLA with 240min windows
+2025-03-30 12:23:48,225 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for TSLA
+2025-03-30 12:23:48,225 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 30min windows
+2025-03-30 12:23:48,226 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:23:48,226 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:23:48,226 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 60min windows
+2025-03-30 12:23:48,227 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:23:48,227 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:23:48,227 - analysis.correlation_analyzer - INFO - Analyzing correlation for META with 240min windows
+2025-03-30 12:23:48,228 - analysis.correlation_analyzer - WARNING - Insufficient data for META in the specified time range
+2025-03-30 12:23:48,228 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for META
+2025-03-30 12:23:48,228 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 30min windows
+2025-03-30 12:23:48,234 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:23:48,234 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 60min windows
+2025-03-30 12:23:48,239 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:23:48,239 - analysis.correlation_analyzer - INFO - Analyzing correlation for NVDA with 240min windows
+2025-03-30 12:23:48,246 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for NVDA
+2025-03-30 12:23:48,246 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 30min windows
+2025-03-30 12:23:48,246 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:23:48,248 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:23:48,248 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 60min windows
+2025-03-30 12:23:48,249 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:23:48,249 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:23:48,249 - analysis.correlation_analyzer - INFO - Analyzing correlation for JPM with 240min windows
+2025-03-30 12:23:48,250 - analysis.correlation_analyzer - WARNING - Insufficient data for JPM in the specified time range
+2025-03-30 12:23:48,250 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for JPM
+2025-03-30 12:23:48,250 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 30min windows
+2025-03-30 12:23:48,255 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:23:48,255 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 60min windows
+2025-03-30 12:23:48,260 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:23:48,260 - analysis.correlation_analyzer - INFO - Analyzing correlation for V with 240min windows
+2025-03-30 12:23:48,266 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for V
+2025-03-30 12:23:48,266 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 30min windows
+2025-03-30 12:23:48,270 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:23:48,270 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 60min windows
+2025-03-30 12:23:48,275 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:23:48,276 - analysis.correlation_analyzer - INFO - Analyzing correlation for WMT with 240min windows
+2025-03-30 12:23:48,282 - analysis.correlation_analyzer - WARNING - Insufficient aligned data points for WMT
+2025-03-30 12:23:48,282 - __main__ - INFO - Analyzing time lags
+2025-03-30 12:23:48,282 - analysis.time_lag_analyzer - INFO - Analyzing time lag for AAPL
+2025-03-30 12:23:48,293 - __main__ - INFO - Stopping data collection
+2025-03-30 12:23:48,294 - __main__ - INFO - Waiting for stock_prices thread to finish
+2025-03-30 12:23:48,445 - data_collection.financial_news_collector - INFO - Retrieved 212 news items from Finnhub for MSFT
+2025-03-30 12:23:48,573 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for MSFT
+2025-03-30 12:23:48,573 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for MSFT
+2025-03-30 12:23:49,633 - data_collection.financial_news_collector - INFO - Retrieved 195 news items from Finnhub for GOOGL
+2025-03-30 12:23:49,725 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for GOOGL
+2025-03-30 12:23:49,725 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for GOOGL
+2025-03-30 12:23:50,813 - data_collection.financial_news_collector - INFO - Retrieved 204 news items from Finnhub for AMZN
+2025-03-30 12:23:50,856 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for AMZN
+2025-03-30 12:23:50,858 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for AMZN
+2025-03-30 12:23:51,996 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for TSLA
+2025-03-30 12:23:51,996 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for TSLA
+2025-03-30 12:23:52,028 - data_collection.financial_news_collector - INFO - Retrieved 235 news items from Finnhub for TSLA
+2025-03-30 12:23:53,125 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for META
+2025-03-30 12:23:53,126 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for META
+2025-03-30 12:23:53,179 - data_collection.financial_news_collector - INFO - Retrieved 157 news items from Finnhub for META
+2025-03-30 12:23:53,300 - __main__ - INFO - Waiting for news thread to finish
+2025-03-30 12:23:54,273 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for NVDA
+2025-03-30 12:23:54,273 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for NVDA
+2025-03-30 12:23:54,454 - data_collection.financial_news_collector - INFO - Retrieved 227 news items from Finnhub for NVDA
+2025-03-30 12:23:55,419 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for JPM
+2025-03-30 12:23:55,420 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for JPM
+2025-03-30 12:23:55,578 - data_collection.financial_news_collector - INFO - Retrieved 64 news items from Finnhub for JPM
+2025-03-30 12:23:56,716 - data_collection.financial_news_collector - INFO - Retrieved 32 news items from Finnhub for V
+2025-03-30 12:23:56,736 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for V
+2025-03-30 12:23:56,736 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for V
+2025-03-30 12:23:57,840 - data_collection.financial_news_collector - INFO - Retrieved 69 news items from Finnhub for WMT
+2025-03-30 12:23:58,028 - data_collection.stock_price_predictor - WARNING - No data returned from Alpha Vantage for WMT
+2025-03-30 12:23:58,028 - data_collection.stock_price_predictor - INFO - Falling back to Yahoo Finance for WMT
+2025-03-30 12:23:58,308 - __main__ - INFO - Pipeline completed

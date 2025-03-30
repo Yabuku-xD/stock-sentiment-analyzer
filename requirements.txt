@@ -1,0 +1,28 @@
+# Core dependencies
+numpy
+pandas
+python-dateutil
+requests
+psycopg2-binary
+# Data collection
+yfinance
+# Data processing and NLP
+nltk
+spacy
+transformers
+torch
+# Analysis and ML
+scikit-learn
+scipy
+xgboost
+joblib
+# Visualization
+matplotlib
+seaborn
+plotly
+dash
+dash-bootstrap-components
+# Utilities
+tqdm
+python-dotenv
+pytz
